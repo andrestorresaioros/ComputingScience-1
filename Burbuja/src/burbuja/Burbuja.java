@@ -5,7 +5,8 @@ public class Burbuja {
     public static void main(String[] args) {
         int[] a = {1,2,3,4,5,6};
         int[] b = {6,5,4,3,2,1};
-        int n = b.length;
+        int[] c = {6,3,2,4,5,1};
+        int n = c.length;
         int t; 
         int cont =0;
         cont+=2;
@@ -13,14 +14,15 @@ public class Burbuja {
             cont+=6; 
             for(int j=i+1;j<n;j++){
                 cont+=6;
-                if(b[i]<b[j]){
+                if(c[i]<c[j]){
                     cont+=7;
-                    t=b[i];
-                    b[i]=b[j];
-                    b[j]=t;
+                    t=c[i];
+                    c[i]=c[j];
+                    c[j]=t;
                 }
             }
         }
+        System.out.println(c[0]);
         //OD -> Ordenado descendente
         //OA -> Ordenado Ascendete
         //A  -> Aleatoriamente
