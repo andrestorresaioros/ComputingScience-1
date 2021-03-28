@@ -28,8 +28,8 @@ public class Burbuja {
         //A  -> Aleatoriamente
         int formulaOD = 2+6*(n-1)+6*((n*n-n)/2);
         int formulaOA = 2+6*(n-1)+13*((n*n-n)/2);
-        int formulaA;
-        System.out.println("Formula: "+formulaOD);
+        int formulaA = 2+6*(n-1)+(6)*((n*n-n)/2);
+        System.out.println("Formula: "+formulaA);
         System.out.println("Contador: "+cont);
     }
     
