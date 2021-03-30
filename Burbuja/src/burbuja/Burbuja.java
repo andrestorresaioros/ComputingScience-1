@@ -1,4 +1,4 @@
-package burbuja;
+//package burbuja;
 
 public class Burbuja {
 
@@ -34,6 +34,8 @@ public class Burbuja {
         int formulaA = 2+(x*7)+6*(n-1)+(6)*((n*n-n)/2);
         System.out.println("Formula: "+formulaA);
         System.out.println("Contador: "+cont);
+        Graficadora g = new Graficadora();
+        g.Dibujar();
     }
     
 }
