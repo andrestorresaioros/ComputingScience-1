@@ -26,9 +26,9 @@ public class Burbuja {
                 }
             }
         }
-        //OD -> Ordenado descendente
-        //OA -> Ordenado Ascendete
-        //A  -> Aleatoriamente
+        //OD -> Ordenado descendente  //3*x*x+3*x-4
+        //OA -> Ordenado Ascendete    //((13*x*x)/2)-(x/2)-4
+        //A  -> Aleatoriamente        //(3*x*x)+10*x-4
         int formulaOD = 2+6*(n-1)+6*((n*n-n)/2);
         int formulaOA = 2+6*(n-1)+13*((n*n-n)/2);
         int formulaA = 2+(x*7)+6*(n-1)+(6)*((n*n-n)/2);

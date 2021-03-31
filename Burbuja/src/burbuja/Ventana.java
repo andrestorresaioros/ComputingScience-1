@@ -14,17 +14,20 @@ public class Ventana extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
        if (e.getSource().equals(g.getBottom1())) {
-            Graficadora.plano.paintSQRFunc(Graficadora.plano.getGraphics(),0.02,0,0,0,-200,200);
+           //Ordenado descendente
+            Graficadora.plano.paintSQRFunc(Graficadora.plano.getGraphics(),0,3,3,-4,-200,200);
             Graficadora.plano.paintSQRFunc3(Graficadora.plano.getGraphics(),0.0002,0,0,0,-200,200);
             Graficadora.plano.paintSQRFunc2(Graficadora.plano.getGraphics(),0.002,0,0,0,-200,200);
     }
         if (e.getSource().equals(g.getBottom2())) {
-            Graficadora.plano.paintSQRFunc(Graficadora.plano.getGraphics(),0.02,0,0,0,-200,200);
+            //Ordenado Ascendente
+            Graficadora.plano.paintSQRFunc(Graficadora.plano.getGraphics(),0,13/2,-1/2,-4,-200,200);
             Graficadora.plano.paintSQRFunc3(Graficadora.plano.getGraphics(),0.0002,0,0,0,-200,200);
             Graficadora.plano.paintSQRFunc2(Graficadora.plano.getGraphics(),0.002,0,0,0,-200,200);
     }
         if (e.getSource().equals(g.getBottom3())) {
-            Graficadora.plano.paintSQRFunc(Graficadora.plano.getGraphics(),0.02,0,0,0,-200,200);
+            //Aleatoriamente
+            Graficadora.plano.paintSQRFunc(Graficadora.plano.getGraphics(),0,3,10,-4,-200,200);
             Graficadora.plano.paintSQRFunc3(Graficadora.plano.getGraphics(),0.0002,0,0,0,-200,200);
             Graficadora.plano.paintSQRFunc2(Graficadora.plano.getGraphics(),0.002,0,0,0,-200,200);
 }
