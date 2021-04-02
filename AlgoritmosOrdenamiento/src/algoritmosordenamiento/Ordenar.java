@@ -76,7 +76,7 @@ public class Ordenar {
             int aux[] = new int[a.length];                                      //Arreglo auxiliar
             int j=0;
             for(int i=0;i<a.length;i++){                                        //Recorer arreglo original
-                boolean mover = a[i] << x>=0;                                   //
+                boolean mover = a[i] << x>=0;                                   //35 << 1
                 if(x==0 ? !mover:mover){
                     aux[j] = a[i];
                     j++;
