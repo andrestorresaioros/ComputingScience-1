@@ -1,6 +1,6 @@
 package algoritmosordenamiento;
 
-public class Ordenamiento {
+public class Ordenar {
  
     public void Burbuja(int[] arreglo,String tipo){
         int n = arreglo.length;
@@ -72,6 +72,24 @@ public class Ordenamiento {
     
     public void Radix(int a[]){
         System.out.println("Ordenamiento por Radix");
+        for(int x=Integer.SIZE-1;x>=0;x--){                                     //Repetir la cantidad de dígitos maximos q soporta un int
+            int aux[] = new int[a.length];                                      //Arreglo auxiliar
+            int j=0;
+            for(int i=0;i<a.length;i++){                                        //Recorer arreglo original
+                boolean mover = a[i] << x>=0;                                   //
+                if(x==0 ? !mover:mover){
+                    aux[j] = a[i];
+                    j++;
+                }else{
+                    a[i-j]=a[i];
+                }
+            }
+            for(int i=j;i<aux.length;i++){
+                aux[i]=a[i-j];
+            }
+            a=aux;
+        }
+        MostrarArreglo(a);
     }
     
     public void MostrarArreglo(int a[]){
