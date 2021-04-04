@@ -3,6 +3,7 @@ package algoritmosordenamiento;
 public class Ordenar {
  
     public void Burbuja(int[] arreglo,String tipo){
+        System.out.println("Ordenamiento por Burbuja:");
         int n = arreglo.length;
         int t; 
         int cont = 0, x =0;
@@ -41,7 +42,7 @@ public class Ordenar {
     }
     
     public void Seleccion(int a[]){
-        System.out.println("Ordenamiento por Seleccion");
+        System.out.println("Ordenamiento por Seleccion:");
         for(int i=0;i<a.length-1;i++){
             int min = i;
             for(int j=i+1;j<a.length;j++){
@@ -57,7 +58,7 @@ public class Ordenar {
     }
     
     public void Insercion(int a[]){
-        System.out.println("Ordenamiento por Insercion");
+        System.out.println("Ordenamiento por Insercion:");
         for(int i=1;i<a.length;i++){
             int x = a[i];
             int k = i-1;
@@ -71,30 +72,55 @@ public class Ordenar {
     }
     
     public void Radix(int a[]){
-        System.out.println("Ordenamiento por Radix");
-        for(int x=Integer.SIZE-1;x>=0;x--){                                     //Repetir la cantidad de dígitos maximos q soporta un int
-            int aux[] = new int[a.length];                                      //Arreglo auxiliar
-            int j=0;
-            for(int i=0;i<a.length;i++){                                        //Recorer arreglo original
-                boolean mover = a[i] << x>=0;                                   //35 << 1
-                if(x==0 ? !mover:mover){
-                    aux[j] = a[i];
+        System.out.println("Ordenamiento por Radix:");
+        int max = GetMax(a);
+        int posicion = 1;
+        while(max/posicion > 0){
+            int organizador[][] = new int[10][a.length];
+            for(int i=0;i<a.length;i++){
+                int j=0;
+                while(organizador[(a[i]/posicion)%10][j] != 0){
                     j++;
-                }else{
-                    a[i-j]=a[i];
+                }
+                organizador[(a[i]/posicion)%10][j]=a[i];
+            }
+            int contOrganizados = 0;
+            for(int i=0;i<organizador.length;i++){
+                for(int j=0;j<organizador[0].length;j++){
+                    if(organizador[i][j] != 0){
+                        a[contOrganizados] = organizador[i][j];
+                        contOrganizados++;
+                    }
                 }
             }
-            for(int i=j;i<aux.length;i++){
-                aux[i]=a[i-j];
-            }
-            a=aux;
+            posicion *= 10;
         }
         MostrarArreglo(a);
+    }
+    
+    public int GetMax(int a[]){
+        int max=a[0];
+        for(int i=1;i<a.length;i++){
+            if(max<a[i]){
+                max=a[i];
+            }
+        }
+        return max;
     }
     
     public void MostrarArreglo(int a[]){
         for(int i=0;i<a.length;i++){
             System.out.print(a[i]+" ");
+        }
+        System.out.println("");
+    }
+    
+    public void MostrarMatriz(int[][] x){
+        for(int i=0;i<x.length;i++){
+            for(int j=0;j<x[0].length;j++){
+                System.out.print(x[i][j]+" ");
+            }
+            System.out.println("");
         }
     }
     
