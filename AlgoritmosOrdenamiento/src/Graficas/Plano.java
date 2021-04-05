@@ -20,7 +20,7 @@ public class Plano extends JPanel{
      public void paintComponent(Graphics g ) {
             super.paintComponent(g);
             g.setColor(Color.red);
-           // g.drawLine(0, this.getHeight()/2, this.getWidth(), this.getHeight()/2);
+            g.drawLine(0, this.getHeight()/2, this.getWidth(), this.getHeight()/2);
             g.drawLine(this.getWidth()/2, 0,this.getWidth()/2 , this.getHeight());
                  }
 
@@ -41,7 +41,7 @@ public class Plano extends JPanel{
             double y = ((double)Math.pow(i,3)*x3mult)+((double)Math.pow(i,2)*x2mult)+i*x1mult+cons;
             double xp = i+10;
             double yp = ((double)Math.pow(xp,3)*x3mult)+((double)Math.pow(xp,2)*x2mult)+xp*x1mult+cons;
-            g.drawLine((int)coord_x(i), (int)coord_y(y), (int)coord_x(xp), (int)coord_y(yp));
+            g.drawLine((int)coord_x1(i), (int)coord_y(y), (int)coord_x1(xp), (int)coord_y(yp));
             g.setColor(Color.black);
         }
     }
@@ -61,9 +61,15 @@ public class Plano extends JPanel{
          double real_x = (x+this.getWidth()/2);
         return real_x;
      }
+     private double coord_x1(double x){
+         double real_x = (x+this.getWidth()/2)-25;
+        return real_x;
+     }
 
      private double coord_y(double y){
-          double real_y = (-y+this.getHeight()/2)*2;
+          double real_y = (-y+this.getHeight()/2);
           return (real_y);
      }
+
+    
 }
