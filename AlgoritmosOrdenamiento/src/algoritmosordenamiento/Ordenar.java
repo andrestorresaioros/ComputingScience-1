@@ -126,16 +126,9 @@ public class Ordenar {
         System.out.println("");
     }
     
-    public void Matriz(){
-        double[][] m = {
-            {3,5,2,3},
-            {5,8,9,1},
-            {1,0,7,3},
-            {4,3,5,2}
-        };
-    
+    public void Matriz(double[][] m){
         int i,j,k;
-        final int n=4;
+        final int n=m.length;
         int cont =0;
         
         cont+=3;
