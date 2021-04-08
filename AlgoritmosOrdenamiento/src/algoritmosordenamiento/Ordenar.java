@@ -126,6 +126,41 @@ public class Ordenar {
         System.out.println("");
     }
     
+    public void Matriz(){
+        double[][] m = {
+            {3,5,2,3},
+            {5,8,9,1},
+            {1,0,7,3},
+            {4,3,5,2}
+        };
+    
+        int i,j,k;
+        final int n=4;
+        int cont =0;
+        
+        cont+=3;
+        for(i=0;i<n-1;i++){
+            cont+=5;
+            for(k=i;k<n;k++){
+                cont+=5;
+                for(j=i+1;j<n;j++){
+                    cont+=16;
+                    m[k][j]=m[k][j]-m[k][i]*m[i][j]/m[i][i];
+                }
+            }
+        }
+        
+        int formula =3+(5*(n-1))+(5*((((n*n)+n)/2)-1))+(16*((n*n*n)-(3*(n*n))+(2*n)+((-(n*n*n)+(3*(n*n))-(2*n))/6)));
+        System.out.println("Contador: "+cont);
+        System.out.println("Formula: "+formula);
+        
+        double traza=1;
+        for(i=0;i<n;i++){
+            traza = traza*m[i][i];
+        }
+        System.out.println(traza);
+    }
+    
     public int GetMax(int a[]){
         int max=a[0];
         for(int i=1;i<a.length;i++){
