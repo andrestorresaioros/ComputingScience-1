@@ -39,7 +39,7 @@ public class Plano extends JPanel{
      public void paintSQRFunc2(Graphics g, double x3mult, double x2mult,double x1mult,double cons, double x1,double x2){
         for(double i=x1;i<x2;i++){
             double y = ((double)Math.pow(i,3)*x3mult)+((double)Math.pow(i,2)*x2mult)+i*x1mult+cons;
-            double xp = i+10;
+            double xp = i+5;
             double yp = ((double)Math.pow(xp,3)*x3mult)+((double)Math.pow(xp,2)*x2mult)+xp*x1mult+cons;
             g.drawLine((int)coord_x1(i), (int)coord_y(y), (int)coord_x1(xp), (int)coord_y(yp));
             g.setColor(Color.black);
@@ -62,7 +62,7 @@ public class Plano extends JPanel{
         return real_x;
      }
      private double coord_x1(double x){
-         double real_x = (x+this.getWidth()/2)-25;
+         double real_x = (x+this.getWidth()/2)+15;
         return real_x;
      }
 

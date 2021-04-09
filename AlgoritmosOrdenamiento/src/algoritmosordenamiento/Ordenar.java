@@ -151,7 +151,7 @@ public class Ordenar {
         for(i=0;i<n;i++){
             traza = traza*m[i][i];
         }
-        System.out.println(traza);
+        System.out.println("Determinante: "+traza);
     }
     
     public int GetMax(int a[]){

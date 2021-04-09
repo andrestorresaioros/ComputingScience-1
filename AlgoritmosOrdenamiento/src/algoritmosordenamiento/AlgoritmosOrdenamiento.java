@@ -21,8 +21,8 @@ public class AlgoritmosOrdenamiento {
 //        orden.Radix(a);
 //        orden.Radix(b);
 //        orden.Radix(c);
-//        VentanaDescendente vd = new VentanaDescendente();
-//        vd.getClass();
+        VentanaDescendente vd = new VentanaDescendente();
+        vd.getClass();
     }
     
 }
