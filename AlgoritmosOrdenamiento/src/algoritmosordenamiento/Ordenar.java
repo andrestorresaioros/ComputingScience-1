@@ -1,7 +1,11 @@
 package algoritmosordenamiento;
 
+import java.util.Scanner;
+
 public class Ordenar {
  
+    Scanner sc = new Scanner(System.in);
+    
     public void Burbuja(int[] arreglo,String tipo){
         System.out.println("Ordenamiento por Burbuja:");
         int n = arreglo.length;
@@ -171,10 +175,12 @@ public class Ordenar {
         System.out.println("");
     }
     
-    public void MostrarMatriz(int[][] x){
+    public void InsertarMatriz(double[][] x){
         for(int i=0;i<x.length;i++){
             for(int j=0;j<x[0].length;j++){
-                System.out.print(x[i][j]+" ");
+                System.out.print("Ingrese la posición [i][j]: ");
+                x[i][j]=sc.nextInt();
+                System.out.println("");
             }
             System.out.println("");
         }
