@@ -8,10 +8,11 @@ public class AlgoritmosOrdenamiento {
     
     public static void main(String[] args) {
         double[][] m = {
-            {3,5,2,3},
-            {5,8,9,1},
-            {1,0,7,3},
-            {4,3,5,2}
+            {3,5,2,1,1},
+            {5,8,9,1,2},
+            {1,0,7,1,3},
+            {1,0,7,1,4},
+            {1,0,7,1,4}
         };
         orden.Matriz(m);
 //        int[] a = {135,262,356,3,1};

@@ -143,7 +143,7 @@ public class Ordenar {
             }
         }
         
-        int formula =3+(5*(n-1))+(5*((((n*n)+n)/2)-1))+(16*((n*n*n)-(3*(n*n))+(2*n)+((-(n*n*n)+(3*(n*n))-(2*n))/6)));
+        int formula =3+(5*(n-1))+(5*((((n*n)+n)/2)-1))+(16*((n*n)-n+(((n)*(n-1)*(n-2))/3)));
         System.out.println("Contador: "+cont);
         System.out.println("Formula: "+formula);
         
