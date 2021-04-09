@@ -1,10 +1,14 @@
 package algoritmosordenamiento;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.*;
 
 public class Ordenar {
  
     Scanner sc = new Scanner(System.in);
+    String datos;
     
     public void Burbuja(int[] arreglo,String tipo){
         System.out.println("Ordenamiento por Burbuja:");
@@ -150,12 +154,24 @@ public class Ordenar {
         int formula =3+(5*(n-1))+(5*((((n*n)+n)/2)-1))+(16*((n*n)-n+(((n)*(n-1)*(n-2))/3)));
         System.out.println("Contador: "+cont);
         System.out.println("Formula: "+formula);
+        //JOptionPane.showMessageDialog(null,"Contador: "+cont);
+       // JOptionPane.showMessageDialog(null,"el ingreso fue exitoso","Inicio",2);
+      //  JOptionPane.showMessageDialog(null,"el ingreso fue exitoso","Inicio",2);
+       // JOptionPane.showMessageDialog(null,"Formula: ","Formula",2);
+        
         
         double traza=1;
         for(i=0;i<n;i++){
             traza = traza*m[i][i];
         }
         System.out.println("Determinante: "+traza);
+        JOptionPane.showMessageDialog(
+                null,"Contador: "+cont+
+                "\n Formula: " +formula+
+                "\n Determinante: "+traza
+                ,"Datos",2);
+        //JOptionPane.showMessageDialog(null,"Formula: "+formula,"Formula",2);
+       // JOptionPane.showMessageDialog(null,"Determinante: "+traza,"Determinante",2);
     }
     
     public int GetMax(int a[]){
@@ -178,9 +194,8 @@ public class Ordenar {
     public void InsertarMatriz(double[][] x){
         for(int i=0;i<x.length;i++){
             for(int j=0;j<x[0].length;j++){
-                System.out.print("Ingrese la posición [i][j]: ");
-                x[i][j]=sc.nextInt();
-                System.out.println("");
+                datos = JOptionPane.showInputDialog("Ingrese la fila "+(i+1)+" columna "+(j+1)+":");
+                x[i][j]=Integer.parseInt(datos);
             }
             System.out.println("");
         }
