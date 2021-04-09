@@ -154,10 +154,6 @@ public class Ordenar {
         int formula =3+(5*(n-1))+(5*((((n*n)+n)/2)-1))+(16*((n*n)-n+(((n)*(n-1)*(n-2))/3)));
         System.out.println("Contador: "+cont);
         System.out.println("Formula: "+formula);
-        //JOptionPane.showMessageDialog(null,"Contador: "+cont);
-       // JOptionPane.showMessageDialog(null,"el ingreso fue exitoso","Inicio",2);
-      //  JOptionPane.showMessageDialog(null,"el ingreso fue exitoso","Inicio",2);
-       // JOptionPane.showMessageDialog(null,"Formula: ","Formula",2);
         
         
         double traza=1;
@@ -170,8 +166,6 @@ public class Ordenar {
                 "\n Formula: " +formula+
                 "\n Determinante: "+traza
                 ,"Datos",2);
-        //JOptionPane.showMessageDialog(null,"Formula: "+formula,"Formula",2);
-       // JOptionPane.showMessageDialog(null,"Determinante: "+traza,"Determinante",2);
     }
     
     public int GetMax(int a[]){
