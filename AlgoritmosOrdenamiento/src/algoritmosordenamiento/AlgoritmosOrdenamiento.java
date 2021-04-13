@@ -8,7 +8,7 @@ public class AlgoritmosOrdenamiento {
     static Ordenar orden = new Ordenar();
     
     public static void main(String[] args) {
-       double[][] m = new double[4][4];
+       double[][] m = new double[5][5];
        orden.InsertarMatriz(m);
        orden.Matriz(m);
        VentanaDescendente vd = new VentanaDescendente();

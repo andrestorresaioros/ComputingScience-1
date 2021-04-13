@@ -146,11 +146,16 @@ public class Ordenar {
                 cont+=5;
                 for(j=i+1;j<n;j++){
                     cont+=16;
-                    if(m[i][i]==0){
-                        aux=true;
-                    }else{
-                        m[k][j]=m[k][j]-m[k][i]*m[i][j]/m[i][i];
-                    }    
+                    while(m[i][i]==0){
+                        m[i][i]=m[i+1][i];
+                        if(m[i][i]==0){
+                            aux=true;
+                            break;
+                        }else{
+                            aux=false;
+                        }
+                    }
+                    m[k][j]=m[k][j]-m[k][i]*m[i][j]/m[i][i];  
                 }
             }
             MostrarMatriz(m);
