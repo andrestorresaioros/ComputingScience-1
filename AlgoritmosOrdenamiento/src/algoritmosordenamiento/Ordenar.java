@@ -137,30 +137,34 @@ public class Ordenar {
     public void Matriz(double[][] m){
         int i,j,k;
         final int n=m.length;
+        boolean aux=false;
         int cont =0;
-        
         cont+=3;
         for(i=0;i<n-1;i++){
             cont+=5;
-            for(k=i;k<n;k++){
+            for(k=i+1;k<n;k++){
                 cont+=5;
                 for(j=i+1;j<n;j++){
                     cont+=16;
                     m[k][j]=m[k][j]-m[k][i]*m[i][j]/m[i][i];
+                    if(m[i][i]== 0){
+                        aux=true;
+                    }
                 }
             }
+            MostrarMatriz(m);
+            System.out.println("");
         }
         
-        int formula =3+(5*(n-1))+(5*((((n*n)+n)/2)-1))+(16*((n*n)-n+(((n)*(n-1)*(n-2))/3)));
-        System.out.println("Contador: "+cont);
-        System.out.println("Formula: "+formula);
-        
+        int formula =3+(5*(n-1))+(5*((n*n)-(2*n)-(((n-2)*(n-1))/2)+1))+(16*((n*n)-(2*n)+1+(((n-2)*(n-1)*((2*n)-3))/6)));
         
         double traza=1;
         for(i=0;i<n;i++){
             traza = traza*m[i][i];
         }
-        System.out.println("Determinante: "+traza);
+        if(aux){
+            traza=0;
+        }
         JOptionPane.showMessageDialog(
                 null,"Contador: "+cont+
                 "\n Formula: " +formula+
@@ -190,6 +194,15 @@ public class Ordenar {
             for(int j=0;j<x[0].length;j++){
                 datos = JOptionPane.showInputDialog("Ingrese la fila "+(i+1)+" columna "+(j+1)+":");
                 x[i][j]=Integer.parseInt(datos);
+            }
+            System.out.println("");
+        }
+    }
+    
+    public void MostrarMatriz(double[][] x){
+        for(int i=0;i<x.length;i++){
+            for(int j=0;j<x[i].length;j++){
+                System.out.print(x[i][j]+" ");
             }
             System.out.println("");
         }
