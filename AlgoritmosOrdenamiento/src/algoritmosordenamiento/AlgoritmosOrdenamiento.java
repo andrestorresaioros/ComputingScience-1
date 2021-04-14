@@ -12,8 +12,8 @@ public class AlgoritmosOrdenamiento {
        double[][] m = new double[tam][tam];
        orden.InsertarMatriz(m);
        orden.Matriz(m);
-       VentanaDescendente vd = new VentanaDescendente();
-       vd.getClass();
+       //VentanaDescendente vd = new VentanaDescendente();
+       //vd.getClass();
     }
     
 }

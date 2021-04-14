@@ -148,16 +148,17 @@ public class Ordenar {
                     cont+=16;
                     int mas = 1;
                     while(m[i][i]==0){
-                        double auxiliar = m[i][i];
-                        m[i][i]=m[i+mas][i];
-                        m[i+mas][i]=auxiliar;
+                        double[] temporal = m[i];
+                        m[i]= m[i+mas];
+                        m[i+mas]=temporal;
                         if(i+mas==n-1 && m[i][i]==0){
                             aux=true;
                             break;
                         }
                         mas++;
                     }
-                    m[k][j]=m[k][j]-m[k][i]*m[i][j]/m[i][i];  
+                    m[i][i] = m[i][i]*(Math.pow(-1, mas-1));
+                    m[k][j]=m[k][j]-m[k][i]*m[i][j]/m[i][i];      
                 }
             }
         }
