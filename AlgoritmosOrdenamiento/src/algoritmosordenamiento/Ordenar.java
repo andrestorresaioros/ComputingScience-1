@@ -160,8 +160,6 @@ public class Ordenar {
                     m[k][j]=m[k][j]-m[k][i]*m[i][j]/m[i][i];  
                 }
             }
-            MostrarMatriz(m);
-            System.out.println("");
         }
         
         int formula =3+(5*(n-1))+(5*((n*n)-(2*n)-(((n-2)*(n-1))/2)+1))+(16*((n*n)-(2*n)+1+(((n-2)*(n-1)*((2*n)-3))/6)));
