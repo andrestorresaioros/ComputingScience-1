@@ -146,14 +146,16 @@ public class Ordenar {
                 cont+=5;
                 for(j=i+1;j<n;j++){
                     cont+=16;
+                    int mas = 1;
                     while(m[i][i]==0){
-                        m[i][i]=m[i+1][i];
-                        if(m[i][i]==0){
+                        double auxiliar = m[i][i];
+                        m[i][i]=m[i+mas][i];
+                        m[i+mas][i]=auxiliar;
+                        if(i+mas==n-1 && m[i][i]==0){
                             aux=true;
                             break;
-                        }else{
-                            aux=false;
                         }
+                        mas++;
                     }
                     m[k][j]=m[k][j]-m[k][i]*m[i][j]/m[i][i];  
                 }
@@ -174,7 +176,7 @@ public class Ordenar {
         JOptionPane.showMessageDialog(
                 null,"Contador: "+cont+
                 "\n Formula: " +formula+
-                "\n Determinante: "+traza
+                "\n Determinante: "+Math.round(traza)
                 ,"Datos",2);
     }
     
