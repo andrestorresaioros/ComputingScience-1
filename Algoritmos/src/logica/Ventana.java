@@ -44,21 +44,21 @@ public class Ventana {
         
         
         JLabel lblRaiz = new JLabel("Raiz: ");
-        lblRaiz.setBounds(24, 130, 159, 14);
+        lblRaiz.setBounds(24, 30, 159, 14);
         frame.getContentPane().add(lblRaiz);
         
         JLabel lblIntervalo = new JLabel("Intervalo: ["+a+" , "+b+"]");
-        lblIntervalo.setBounds(24, 159, 159, 14);
+        lblIntervalo.setBounds(24, 50, 159, 14);
         frame.getContentPane().add(lblIntervalo);
         
         JTextPane txtPolinomio = new JTextPane();
         txtPolinomio.setOpaque(false);
-        txtPolinomio.setBounds(185, 124, 64, 20);
+        txtPolinomio.setBounds(185, 50, 64, 20);
         frame.getContentPane().add(txtPolinomio);
 
         JTextPane txtRaiz = new JTextPane();
         txtRaiz.setOpaque(false);
-        txtRaiz.setBounds(185, 95, 64, 20);
+        txtRaiz.setBounds(185, 30, 64, 20);
         frame.getContentPane().add(txtRaiz);
         
         JButton btnCalcular = new JButton("Calcular");
@@ -71,10 +71,10 @@ public class Ventana {
                 txtPolinomio.setText("No hay raiz en el intervalo");
             }
             });
-        btnCalcular.setBounds(72, 25, 125, 44);
+        btnCalcular.setBounds(72, 100, 125, 44);
         frame.getContentPane().add(btnCalcular);
     }
-    
+        
         private void datos(){
         
         num = Integer.parseInt(JOptionPane.showInputDialog("¿De qué grado es tu polinómio?"));
