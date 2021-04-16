@@ -5,6 +5,7 @@
  */
 package logica;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
@@ -53,7 +54,7 @@ public class Ventana {
         
         JTextPane txtPolinomio = new JTextPane();
         txtPolinomio.setOpaque(false);
-        txtPolinomio.setBounds(185, 50, 64, 20);
+        txtPolinomio.setBounds(185, 30, 64, 20);
         frame.getContentPane().add(txtPolinomio);
 
         JTextPane txtRaiz = new JTextPane();
@@ -72,6 +73,7 @@ public class Ventana {
             }
             });
         btnCalcular.setBounds(72, 100, 125, 44);
+        btnCalcular.setBackground(Color.red);
         frame.getContentPane().add(btnCalcular);
     }
         
