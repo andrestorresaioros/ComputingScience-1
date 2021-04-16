@@ -69,7 +69,7 @@ public class Ventana {
             if(cal.isCalcular()){
                 txtPolinomio.setText(String.valueOf(cal.m));
             }else{
-                txtPolinomio.setText("No hay raiz en el intervalo");
+                txtPolinomio.setText("No hay raiz");
             }
             });
         btnCalcular.setBounds(72, 100, 125, 44);
@@ -79,18 +79,18 @@ public class Ventana {
         
         private void datos(){
         
-        num = Integer.parseInt(JOptionPane.showInputDialog("¿De qué grado es tu polinómio?"));
+        num = Integer.parseInt(JOptionPane.showInputDialog("¿Grado del polinómio?"));
         operaciones = new String[(num)];
         numeros = new int[(num+1)];
         for(i = 0; i < (num+1); i++){
-            numeros[i] = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el número x^"+(num-i)));
+            numeros[i] = Integer.parseInt(JOptionPane.showInputDialog("Coeficiente de x^"+(num-i)));
             if( i != num){
-                operaciones[i] = JOptionPane.showInputDialog("Ingresa una suma o resta.");
+                operaciones[i] = JOptionPane.showInputDialog("Ingresa una + o -.");
             }
             
         }
-        a = Integer.parseInt(JOptionPane.showInputDialog("¿Cuál es el extremo izquierdo del intervalo?"));
-        b = Integer.parseInt(JOptionPane.showInputDialog("¿Cuál es el extremo derecho del intervalo?"));
+        a = Integer.parseInt(JOptionPane.showInputDialog("¿Extremo izquierdo del intervalo?"));
+        b = Integer.parseInt(JOptionPane.showInputDialog("¿Extremo derecho del intervalo?"));
     }
     
 }

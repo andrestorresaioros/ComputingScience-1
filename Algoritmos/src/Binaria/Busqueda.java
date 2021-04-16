@@ -52,6 +52,10 @@ public class Busqueda {
 			}
 		}
 	}
+        
+        public int getCentro(){
+            return centro;
+        }
 
 	public boolean isExiste() {
 		return existe;

@@ -88,9 +88,9 @@ public class Ventana {
 				Busqueda ob = new Busqueda(Integer.parseInt(txtCantidad.getText()), Integer.parseInt(txtBuscar.getText()));
 				textPane.setText(ob.llenar());
 				if(ob.isExiste()) {
-					txtResultado.setText("El numero se encuentra en el arreglo");
+					txtResultado.setText("El numero está en "+ob.centro);
 				}else {
-					txtResultado.setText("El numero no fue encontrado");
+					txtResultado.setText("El numero no está");
 				}
 				
 			}
