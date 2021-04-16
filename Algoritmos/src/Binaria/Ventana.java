@@ -1,5 +1,6 @@
 package Binaria;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 
@@ -50,9 +51,15 @@ public class Ventana {
         frame.getContentPane().add(txtCantidad);
         txtCantidad.setColumns(10);
         
-        JLabel lblBuscar = new JLabel("N\u00FAmero a buscar (0 - 50): ");
-        lblBuscar.setBounds(42, 69, 224, 14);
+        //JLabel lblBuscar = new JLabel("N\u00FAmero a buscar (0 - 50): ");
+        JLabel lblBuscar = new JLabel("Número a buscar entre 0 y 50: ");
+        lblBuscar.setBounds(20, 69, 224, 14);
         frame.getContentPane().add(lblBuscar);
+        
+        //JLabel lista
+        JLabel lbl = new JLabel("la lista creada es: ");
+        lbl.setBounds(20, 140, 224, 14);
+        frame.getContentPane().add(lbl);
         
         txtBuscar = new JTextField();
         txtBuscar.setBounds(192, 66, 86, 20);
@@ -60,15 +67,17 @@ public class Ventana {
         txtBuscar.setColumns(10);
         
         JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(20, 211, 295, 77);
+        scrollPane.setBounds(20, 160, 295, 77);
         frame.getContentPane().add(scrollPane);
         
         textPane = new JTextPane();
         scrollPane.setViewportView(textPane);
+        textPane.setFont(new Font("Microsoft JhengHei UI Light", Font.BOLD, 15));
          
          txtResultado = new JTextPane();
-         txtResultado.setFont(new Font("Microsoft JhengHei UI Light", Font.BOLD, 15));
-         txtResultado.setBounds(20, 168, 288, 32);
+         txtResultado.setFont(new Font("Microsoft JhengHei UI Light", Font.BOLD, 20));
+         txtResultado.setForeground(Color.red);
+         txtResultado.setBounds(20, 100, 288, 32);
          txtResultado.setOpaque(false);
          frame.getContentPane().add(txtResultado);
          
@@ -87,7 +96,8 @@ public class Ventana {
 			}
          });
          
-          btnCalcular.setBounds(104, 112, 125, 44);
+          btnCalcular.setBounds(104, 250, 125, 44);
+          btnCalcular.setBackground(Color.red);
           frame.getContentPane().add(btnCalcular);
     }
 }
