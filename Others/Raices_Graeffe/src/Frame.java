@@ -316,546 +316,682 @@ public class Frame extends javax.swing.JFrame {
     private void habilitarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_habilitarCamposActionPerformed
         switch(Integer.parseInt(grado.getText())){
             case 1:
-            n1.setEnabled(true);
-            n1.setEditable(true);
+                VaciarCampos();
+                n1.setEnabled(true);
+                n1.setEditable(true);
 
-            fn1.setEnabled(true);
-            fn1.setEditable(true);
+                fn1.setEnabled(true);
+                fn1.setEditable(true);
 
-            c1.setEnabled(true);
-            c1.setEditable(true);
+                c1.setEnabled(true);
+                c1.setEditable(true);
 
-            c2.setEnabled(true);
-            c2.setEditable(true);
-            break;
+                c2.setEnabled(true);
+                c2.setEditable(true);
+                break;
             case 2:
-            n1.setEnabled(true);
-            n1.setEditable(true);
+                VaciarCampos();
+                n1.setEnabled(true);
+                n1.setEditable(true);
 
-            fn1.setEnabled(true);
-            fn1.setEditable(true);
+                fn1.setEnabled(true);
+                fn1.setEditable(true);
 
-            c1.setEnabled(true);
-            c1.setEditable(true);
+                c1.setEnabled(true);
+                c1.setEditable(true);
 
-            n2.setEnabled(true);
-            n2.setEditable(true);
+                n2.setEnabled(true);
+                n2.setEditable(true);
 
-            fn2.setEnabled(true);
-            fn2.setEditable(true);
+                fn2.setEnabled(true);
+                fn2.setEditable(true);
 
-            c2.setEnabled(true);
-            c2.setEditable(true);
+                c2.setEnabled(true);
+                c2.setEditable(true);
 
-            c3.setEnabled(true);
-            c3.setEditable(true);
-            break;
+                c3.setEnabled(true);
+                c3.setEditable(true);
+                break;
             case 3:
-            n1.setEnabled(true);
-            n1.setEditable(true);
+                VaciarCampos();
+                n1.setEnabled(true);
+                n1.setEditable(true);
 
-            fn1.setEnabled(true);
-            fn1.setEditable(true);
+                fn1.setEnabled(true);
+                fn1.setEditable(true);
 
-            c1.setEnabled(true);
-            c1.setEditable(true);
+                c1.setEnabled(true);
+                c1.setEditable(true);
 
-            n2.setEnabled(true);
-            n2.setEditable(true);
+                n2.setEnabled(true);
+                n2.setEditable(true);
 
-            fn2.setEnabled(true);
-            fn2.setEditable(true);
+                fn2.setEnabled(true);
+                fn2.setEditable(true);
 
-            c2.setEnabled(true);
-            c2.setEditable(true);
+                c2.setEnabled(true);
+                c2.setEditable(true);
 
-            n3.setEnabled(true);
-            n3.setEditable(true);
+                n3.setEnabled(true);
+                n3.setEditable(true);
 
-            fn3.setEnabled(true);
-            fn3.setEditable(true);
+                fn3.setEnabled(true);
+                fn3.setEditable(true);
 
-            c3.setEnabled(true);
-            c3.setEditable(true);
+                c3.setEnabled(true);
+                c3.setEditable(true);
 
-            c4.setEnabled(true);
-            c4.setEditable(true);
-            break;
+                c4.setEnabled(true);
+                c4.setEditable(true);
+                break;
             case 4:
-            n1.setEnabled(true);
-            n1.setEditable(true);
+                VaciarCampos();
+                n1.setEnabled(true);
+                n1.setEditable(true);
 
-            fn1.setEnabled(true);
-            fn1.setEditable(true);
+                fn1.setEnabled(true);
+                fn1.setEditable(true);
 
-            c1.setEnabled(true);
-            c1.setEditable(true);
+                c1.setEnabled(true);
+                c1.setEditable(true);
 
-            n2.setEnabled(true);
-            n2.setEditable(true);
+                n2.setEnabled(true);
+                n2.setEditable(true);
 
-            fn2.setEnabled(true);
-            fn2.setEditable(true);
+                fn2.setEnabled(true);
+                fn2.setEditable(true);
 
-            c2.setEnabled(true);
-            c2.setEditable(true);
+                c2.setEnabled(true);
+                c2.setEditable(true);
 
-            n3.setEnabled(true);
-            n3.setEditable(true);
+                n3.setEnabled(true);
+                n3.setEditable(true);
 
-            fn3.setEnabled(true);
-            fn3.setEditable(true);
+                fn3.setEnabled(true);
+                fn3.setEditable(true);
 
-            c3.setEnabled(true);
-            c3.setEditable(true);
+                c3.setEnabled(true);
+                c3.setEditable(true);
 
-            n4.setEnabled(true);
-            n4.setEditable(true);
+                n4.setEnabled(true);
+                n4.setEditable(true);
 
-            fn4.setEnabled(true);
-            fn4.setEditable(true);
+                fn4.setEnabled(true);
+                fn4.setEditable(true);
 
-            c4.setEnabled(true);
-            c4.setEditable(true);
+                c4.setEnabled(true);
+                c4.setEditable(true);
 
-            c5.setEnabled(true);
-            c5.setEditable(true);
-            break;
+                c5.setEnabled(true);
+                c5.setEditable(true);
+                break;
             case 5:
-            n1.setEnabled(true);
-            n1.setEditable(true);
+                VaciarCampos();
+                n1.setEnabled(true);
+                n1.setEditable(true);
 
-            fn1.setEnabled(true);
-            fn1.setEditable(true);
+                fn1.setEnabled(true);
+                fn1.setEditable(true);
 
-            c1.setEnabled(true);
-            c1.setEditable(true);
+                c1.setEnabled(true);
+                c1.setEditable(true);
 
-            n2.setEnabled(true);
-            n2.setEditable(true);
+                n2.setEnabled(true);
+                n2.setEditable(true);
 
-            fn2.setEnabled(true);
-            fn2.setEditable(true);
+                fn2.setEnabled(true);
+                fn2.setEditable(true);
 
-            c2.setEnabled(true);
-            c2.setEditable(true);
+                c2.setEnabled(true);
+                c2.setEditable(true);
 
-            n3.setEnabled(true);
-            n3.setEditable(true);
+                n3.setEnabled(true);
+                n3.setEditable(true);
 
-            fn3.setEnabled(true);
-            fn3.setEditable(true);
+                fn3.setEnabled(true);
+                fn3.setEditable(true);
 
-            c3.setEnabled(true);
-            c3.setEditable(true);
+                c3.setEnabled(true);
+                c3.setEditable(true);
 
-            n4.setEnabled(true);
-            n4.setEditable(true);
+                n4.setEnabled(true);
+                n4.setEditable(true);
 
-            fn4.setEnabled(true);
-            fn4.setEditable(true);
+                fn4.setEnabled(true);
+                fn4.setEditable(true);
 
-            c4.setEnabled(true);
-            c4.setEditable(true);
+                c4.setEnabled(true);
+                c4.setEditable(true);
 
-            n5.setEnabled(true);
-            n5.setEditable(true);
+                n5.setEnabled(true);
+                n5.setEditable(true);
 
-            fn5.setEnabled(true);
-            fn5.setEditable(true);
+                fn5.setEnabled(true);
+                fn5.setEditable(true);
 
-            c5.setEnabled(true);
-            c5.setEditable(true);
+                c5.setEnabled(true);
+                c5.setEditable(true);
 
-            c6.setEnabled(true);
-            c6.setEditable(true);
-            break;
+                c6.setEnabled(true);
+                c6.setEditable(true);
+                break;
             case 6:
-            n1.setEnabled(true);
-            n1.setEditable(true);
+                VaciarCampos();
+                n1.setEnabled(true);
+                n1.setEditable(true);
 
-            fn1.setEnabled(true);
-            fn1.setEditable(true);
+                fn1.setEnabled(true);
+                fn1.setEditable(true);
 
-            c1.setEnabled(true);
-            c1.setEditable(true);
+                c1.setEnabled(true);
+                c1.setEditable(true);
 
-            n2.setEnabled(true);
-            n2.setEditable(true);
+                n2.setEnabled(true);
+                n2.setEditable(true);
 
-            fn2.setEnabled(true);
-            fn2.setEditable(true);
+                fn2.setEnabled(true);
+                fn2.setEditable(true);
 
-            c2.setEnabled(true);
-            c2.setEditable(true);
+                c2.setEnabled(true);
+                c2.setEditable(true);
 
-            n3.setEnabled(true);
-            n3.setEditable(true);
+                n3.setEnabled(true);
+                n3.setEditable(true);
 
-            fn3.setEnabled(true);
-            fn3.setEditable(true);
+                fn3.setEnabled(true);
+                fn3.setEditable(true);
 
-            c3.setEnabled(true);
-            c3.setEditable(true);
+                c3.setEnabled(true);
+                c3.setEditable(true);
 
-            n4.setEnabled(true);
-            n4.setEditable(true);
+                n4.setEnabled(true);
+                n4.setEditable(true);
 
-            fn4.setEnabled(true);
-            fn4.setEditable(true);
+                fn4.setEnabled(true);
+                fn4.setEditable(true);
 
-            c4.setEnabled(true);
-            c4.setEditable(true);
+                c4.setEnabled(true);
+                c4.setEditable(true);
 
-            n5.setEnabled(true);
-            n5.setEditable(true);
+                n5.setEnabled(true);
+                n5.setEditable(true);
 
-            fn5.setEnabled(true);
-            fn5.setEditable(true);
+                fn5.setEnabled(true);
+                fn5.setEditable(true);
 
-            c5.setEnabled(true);
-            c5.setEditable(true);
+                c5.setEnabled(true);
+                c5.setEditable(true);
 
-            n6.setEnabled(true);
-            n6.setEditable(true);
+                n6.setEnabled(true);
+                n6.setEditable(true);
 
-            fn6.setEnabled(true);
-            fn6.setEditable(true);
+                fn6.setEnabled(true);
+                fn6.setEditable(true);
 
-            c6.setEnabled(true);
-            c6.setEditable(true);
+                c6.setEnabled(true);
+                c6.setEditable(true);
 
-            c7.setEnabled(true);
-            c7.setEditable(true);
-            break;
+                c7.setEnabled(true);
+                c7.setEditable(true);
+                break;
             case 7:
-            n1.setEnabled(true);
-            n1.setEditable(true);
+                VaciarCampos();
+                n1.setEnabled(true);
+                n1.setEditable(true);
 
-            fn1.setEnabled(true);
-            fn1.setEditable(true);
+                fn1.setEnabled(true);
+                fn1.setEditable(true);
 
-            c1.setEnabled(true);
-            c1.setEditable(true);
+                c1.setEnabled(true);
+                c1.setEditable(true);
 
-            n2.setEnabled(true);
-            n2.setEditable(true);
+                n2.setEnabled(true);
+                n2.setEditable(true);
 
-            fn2.setEnabled(true);
-            fn2.setEditable(true);
+                fn2.setEnabled(true);
+                fn2.setEditable(true);
 
-            c2.setEnabled(true);
-            c2.setEditable(true);
+                c2.setEnabled(true);
+                c2.setEditable(true);
 
-            n3.setEnabled(true);
-            n3.setEditable(true);
+                n3.setEnabled(true);
+                n3.setEditable(true);
 
-            fn3.setEnabled(true);
-            fn3.setEditable(true);
+                fn3.setEnabled(true);
+                fn3.setEditable(true);
 
-            c3.setEnabled(true);
-            c3.setEditable(true);
+                c3.setEnabled(true);
+                c3.setEditable(true);
 
-            n4.setEnabled(true);
-            n4.setEditable(true);
+                n4.setEnabled(true);
+                n4.setEditable(true);
 
-            fn4.setEnabled(true);
-            fn4.setEditable(true);
+                fn4.setEnabled(true);
+                fn4.setEditable(true);
 
-            c4.setEnabled(true);
-            c4.setEditable(true);
+                c4.setEnabled(true);
+                c4.setEditable(true);
 
-            n5.setEnabled(true);
-            n5.setEditable(true);
+                n5.setEnabled(true);
+                n5.setEditable(true);
 
-            fn5.setEnabled(true);
-            fn5.setEditable(true);
+                fn5.setEnabled(true);
+                fn5.setEditable(true);
 
-            c5.setEnabled(true);
-            c5.setEditable(true);
+                c5.setEnabled(true);
+                c5.setEditable(true);
 
-            n6.setEnabled(true);
-            n6.setEditable(true);
+                n6.setEnabled(true);
+                n6.setEditable(true);
 
-            fn6.setEnabled(true);
-            fn6.setEditable(true);
+                fn6.setEnabled(true);
+                fn6.setEditable(true);
 
-            c6.setEnabled(true);
-            c6.setEditable(true);
+                c6.setEnabled(true);
+                c6.setEditable(true);
 
-            n7.setEnabled(true);
-            n7.setEditable(true);
+                n7.setEnabled(true);
+                n7.setEditable(true);
 
-            fn7.setEnabled(true);
-            fn7.setEditable(true);
+                fn7.setEnabled(true);
+                fn7.setEditable(true);
 
-            c7.setEnabled(true);
-            c7.setEditable(true);
+                c7.setEnabled(true);
+                c7.setEditable(true);
 
-            c8.setEnabled(true);
-            c8.setEditable(true);
-            break;
+                c8.setEnabled(true);
+                c8.setEditable(true);
+                break;
             case 8:
-            n1.setEnabled(true);
-            n1.setEditable(true);
+                VaciarCampos();
+                n1.setEnabled(true);
+                n1.setEditable(true);
 
-            fn1.setEnabled(true);
-            fn1.setEditable(true);
+                fn1.setEnabled(true);
+                fn1.setEditable(true);
 
-            c1.setEnabled(true);
-            c1.setEditable(true);
+                c1.setEnabled(true);
+                c1.setEditable(true);
 
-            n2.setEnabled(true);
-            n2.setEditable(true);
+                n2.setEnabled(true);
+                n2.setEditable(true);
 
-            fn2.setEnabled(true);
-            fn2.setEditable(true);
+                fn2.setEnabled(true);
+                fn2.setEditable(true);
 
-            c2.setEnabled(true);
-            c2.setEditable(true);
+                c2.setEnabled(true);
+                c2.setEditable(true);
 
-            n3.setEnabled(true);
-            n3.setEditable(true);
+                n3.setEnabled(true);
+                n3.setEditable(true);
 
-            fn3.setEnabled(true);
-            fn3.setEditable(true);
+                fn3.setEnabled(true);
+                fn3.setEditable(true);
 
-            c3.setEnabled(true);
-            c3.setEditable(true);
+                c3.setEnabled(true);
+                c3.setEditable(true);
 
-            n4.setEnabled(true);
-            n4.setEditable(true);
+                n4.setEnabled(true);
+                n4.setEditable(true);
 
-            fn4.setEnabled(true);
-            fn4.setEditable(true);
+                fn4.setEnabled(true);
+                fn4.setEditable(true);
 
-            c4.setEnabled(true);
-            c4.setEditable(true);
+                c4.setEnabled(true);
+                c4.setEditable(true);
 
-            n5.setEnabled(true);
-            n5.setEditable(true);
+                n5.setEnabled(true);
+                n5.setEditable(true);
 
-            fn5.setEnabled(true);
-            fn5.setEditable(true);
+                fn5.setEnabled(true);
+                fn5.setEditable(true);
 
-            c5.setEnabled(true);
-            c5.setEditable(true);
+                c5.setEnabled(true);
+                c5.setEditable(true);
 
-            n6.setEnabled(true);
-            n6.setEditable(true);
+                n6.setEnabled(true);
+                n6.setEditable(true);
 
-            fn6.setEnabled(true);
-            fn6.setEditable(true);
+                fn6.setEnabled(true);
+                fn6.setEditable(true);
 
-            c6.setEnabled(true);
-            c6.setEditable(true);
+                c6.setEnabled(true);
+                c6.setEditable(true);
 
-            n7.setEnabled(true);
-            n7.setEditable(true);
+                n7.setEnabled(true);
+                n7.setEditable(true);
 
-            fn7.setEnabled(true);
-            fn7.setEditable(true);
+                fn7.setEnabled(true);
+                fn7.setEditable(true);
 
-            c7.setEnabled(true);
-            c7.setEditable(true);
+                c7.setEnabled(true);
+                c7.setEditable(true);
 
-            n8.setEnabled(true);
-            n8.setEditable(true);
+                n8.setEnabled(true);
+                n8.setEditable(true);
 
-            fn8.setEnabled(true);
-            fn8.setEditable(true);
+                fn8.setEnabled(true);
+                fn8.setEditable(true);
 
-            c8.setEnabled(true);
-            c8.setEditable(true);
+                c8.setEnabled(true);
+                c8.setEditable(true);
 
-            c9.setEnabled(true);
-            c9.setEditable(true);
-            break;
+                c9.setEnabled(true);
+                c9.setEditable(true);
+                break;
             case 9:
-            n1.setEnabled(true);
-            n1.setEditable(true);
+                VaciarCampos();
+                n1.setEnabled(true);
+                n1.setEditable(true);
 
-            fn1.setEnabled(true);
-            fn1.setEditable(true);
+                fn1.setEnabled(true);
+                fn1.setEditable(true);
 
-            c1.setEnabled(true);
-            c1.setEditable(true);
+                c1.setEnabled(true);
+                c1.setEditable(true);
 
-            n2.setEnabled(true);
-            n2.setEditable(true);
+                n2.setEnabled(true);
+                n2.setEditable(true);
 
-            fn2.setEnabled(true);
-            fn2.setEditable(true);
+                fn2.setEnabled(true);
+                fn2.setEditable(true);
 
-            c2.setEnabled(true);
-            c2.setEditable(true);
+                c2.setEnabled(true);
+                c2.setEditable(true);
 
-            n3.setEnabled(true);
-            n3.setEditable(true);
+                n3.setEnabled(true);
+                n3.setEditable(true);
 
-            fn3.setEnabled(true);
-            fn3.setEditable(true);
+                fn3.setEnabled(true);
+                fn3.setEditable(true);
 
-            c3.setEnabled(true);
-            c3.setEditable(true);
+                c3.setEnabled(true);
+                c3.setEditable(true);
 
-            n4.setEnabled(true);
-            n4.setEditable(true);
+                n4.setEnabled(true);
+                n4.setEditable(true);
 
-            fn4.setEnabled(true);
-            fn4.setEditable(true);
+                fn4.setEnabled(true);
+                fn4.setEditable(true);
 
-            c4.setEnabled(true);
-            c4.setEditable(true);
+                c4.setEnabled(true);
+                c4.setEditable(true);
 
-            n5.setEnabled(true);
-            n5.setEditable(true);
+                n5.setEnabled(true);
+                n5.setEditable(true);
 
-            fn5.setEnabled(true);
-            fn5.setEditable(true);
+                fn5.setEnabled(true);
+                fn5.setEditable(true);
 
-            c5.setEnabled(true);
-            c5.setEditable(true);
+                c5.setEnabled(true);
+                c5.setEditable(true);
 
-            n6.setEnabled(true);
-            n6.setEditable(true);
+                n6.setEnabled(true);
+                n6.setEditable(true);
 
-            fn6.setEnabled(true);
-            fn6.setEditable(true);
+                fn6.setEnabled(true);
+                fn6.setEditable(true);
 
-            c6.setEnabled(true);
-            c6.setEditable(true);
+                c6.setEnabled(true);
+                c6.setEditable(true);
 
-            n7.setEnabled(true);
-            n7.setEditable(true);
+                n7.setEnabled(true);
+                n7.setEditable(true);
 
-            fn7.setEnabled(true);
-            fn7.setEditable(true);
+                fn7.setEnabled(true);
+                fn7.setEditable(true);
 
-            c7.setEnabled(true);
-            c7.setEditable(true);
+                c7.setEnabled(true);
+                c7.setEditable(true);
 
-            n8.setEnabled(true);
-            n8.setEditable(true);
+                n8.setEnabled(true);
+                n8.setEditable(true);
 
-            fn8.setEnabled(true);
-            fn8.setEditable(true);
+                fn8.setEnabled(true);
+                fn8.setEditable(true);
 
-            c8.setEnabled(true);
-            c8.setEditable(true);
+                c8.setEnabled(true);
+                c8.setEditable(true);
 
-            n9.setEnabled(true);
-            n9.setEditable(true);
+                n9.setEnabled(true);
+                n9.setEditable(true);
 
-            fn9.setEnabled(true);
-            fn9.setEditable(true);
+                fn9.setEnabled(true);
+                fn9.setEditable(true);
 
-            c9.setEnabled(true);
-            c9.setEditable(true);
+                c9.setEnabled(true);
+                c9.setEditable(true);
 
-            c10.setEnabled(true);
-            c10.setEditable(true);
-            break;
+                c10.setEnabled(true);
+                c10.setEditable(true);
+                break;
             case 10:
-            n1.setEnabled(true);
-            n1.setEditable(true);
+                VaciarCampos();
+                n1.setEnabled(true);
+                n1.setEditable(true);
 
-            fn1.setEnabled(true);
-            fn1.setEditable(true);
+                fn1.setEnabled(true);
+                fn1.setEditable(true);
 
-            c1.setEnabled(true);
-            c1.setEditable(true);
+                c1.setEnabled(true);
+                c1.setEditable(true);
 
-            n2.setEnabled(true);
-            n2.setEditable(true);
+                n2.setEnabled(true);
+                n2.setEditable(true);
 
-            fn2.setEnabled(true);
-            fn2.setEditable(true);
+                fn2.setEnabled(true);
+                fn2.setEditable(true);
 
-            c2.setEnabled(true);
-            c2.setEditable(true);
+                c2.setEnabled(true);
+                c2.setEditable(true);
 
-            n3.setEnabled(true);
-            n3.setEditable(true);
+                n3.setEnabled(true);
+                n3.setEditable(true);
 
-            fn3.setEnabled(true);
-            fn3.setEditable(true);
+                fn3.setEnabled(true);
+                fn3.setEditable(true);
 
-            c3.setEnabled(true);
-            c3.setEditable(true);
+                c3.setEnabled(true);
+                c3.setEditable(true);
 
-            n4.setEnabled(true);
-            n4.setEditable(true);
+                n4.setEnabled(true);
+                n4.setEditable(true);
 
-            fn4.setEnabled(true);
-            fn4.setEditable(true);
+                fn4.setEnabled(true);
+                fn4.setEditable(true);
 
-            c4.setEnabled(true);
-            c4.setEditable(true);
+                c4.setEnabled(true);
+                c4.setEditable(true);
 
-            n5.setEnabled(true);
-            n5.setEditable(true);
+                n5.setEnabled(true);
+                n5.setEditable(true);
 
-            fn5.setEnabled(true);
-            fn5.setEditable(true);
+                fn5.setEnabled(true);
+                fn5.setEditable(true);
 
-            c5.setEnabled(true);
-            c5.setEditable(true);
+                c5.setEnabled(true);
+                c5.setEditable(true);
 
-            n6.setEnabled(true);
-            n6.setEditable(true);
+                n6.setEnabled(true);
+                n6.setEditable(true);
 
-            fn6.setEnabled(true);
-            fn6.setEditable(true);
+                fn6.setEnabled(true);
+                fn6.setEditable(true);
 
-            c6.setEnabled(true);
-            c6.setEditable(true);
+                c6.setEnabled(true);
+                c6.setEditable(true);
 
-            n7.setEnabled(true);
-            n7.setEditable(true);
+                n7.setEnabled(true);
+                n7.setEditable(true);
 
-            fn7.setEnabled(true);
-            fn7.setEditable(true);
+                fn7.setEnabled(true);
+                fn7.setEditable(true);
 
-            c7.setEnabled(true);
-            c7.setEditable(true);
+                c7.setEnabled(true);
+                c7.setEditable(true);
 
-            n8.setEnabled(true);
-            n8.setEditable(true);
+                n8.setEnabled(true);
+                n8.setEditable(true);
 
-            fn8.setEnabled(true);
-            fn8.setEditable(true);
+                fn8.setEnabled(true);
+                fn8.setEditable(true);
 
-            c8.setEnabled(true);
-            c8.setEditable(true);
+                c8.setEnabled(true);
+                c8.setEditable(true);
 
-            n9.setEnabled(true);
-            n9.setEditable(true);
+                n9.setEnabled(true);
+                n9.setEditable(true);
 
-            fn9.setEnabled(true);
-            fn9.setEditable(true);
+                fn9.setEnabled(true);
+                fn9.setEditable(true);
 
-            c9.setEnabled(true);
-            c9.setEditable(true);
+                c9.setEnabled(true);
+                c9.setEditable(true);
 
-            n10.setEnabled(true);
-            n10.setEditable(true);
+                n10.setEnabled(true);
+                n10.setEditable(true);
 
-            fn10.setEnabled(true);
-            fn10.setEditable(true);
+                fn10.setEnabled(true);
+                fn10.setEditable(true);
 
-            c10.setEnabled(true);
-            c10.setEditable(true);
+                c10.setEnabled(true);
+                c10.setEditable(true);
 
-            c11.setEnabled(true);
-            c11.setEditable(true);
-            break;
+                c11.setEnabled(true);
+                c11.setEditable(true);
+                break;
             default:
             solucion.setText("El grado de la ecuación es mayor a 10.\nPor favor, ingrese un grado menor a 10.");
             break;
         }
     }//GEN-LAST:event_habilitarCamposActionPerformed
 
+    private void VaciarCampos(){
+            n1.setEnabled(false);
+            n1.setEditable(false);
+            n1.setText("");
+
+            fn1.setEnabled(false);
+            fn1.setEditable(false);
+            fn1.setText("");
+
+            c1.setEnabled(false);
+            c1.setEditable(false);
+            c1.setText("");
+
+            n2.setEnabled(false);
+            n2.setEditable(false);
+            n2.setText("");
+
+            fn2.setEnabled(false);
+            fn2.setEditable(false);
+            fn2.setText("");
+
+            c2.setEnabled(false);
+            c2.setEditable(false);
+            c2.setText("");
+            
+            n3.setEnabled(false);
+            n3.setEditable(false);
+            n3.setText("");
+
+            fn3.setEnabled(false);
+            fn3.setEditable(false);
+            fn3.setText("");
+
+            c3.setEnabled(false);
+            c3.setEditable(false);
+            c3.setText("");
+
+            n4.setEnabled(false);
+            n4.setEditable(false);
+            n4.setText("");
+
+            fn4.setEnabled(false);
+            fn4.setEditable(false);
+            fn4.setText("");
+
+            c4.setEnabled(false);
+            c4.setEditable(false);
+            c4.setText("");
+
+            n5.setEnabled(false);
+            n5.setEditable(false);
+            n5.setText("");
+
+            fn5.setEnabled(false);
+            fn5.setEditable(false);
+            fn5.setText("");
+
+            c5.setEnabled(false);
+            c5.setEditable(false);
+            c5.setText("");
+
+            n6.setEnabled(false);
+            n6.setEditable(false);
+            n6.setText("");
+
+            fn6.setEnabled(false);
+            fn6.setEditable(false);
+            fn6.setText("");
+
+            c6.setEnabled(false);
+            c6.setEditable(false);
+            c6.setText("");
+
+            n7.setEnabled(false);
+            n7.setEditable(false);
+            n7.setText("");
+
+            fn7.setEnabled(false);
+            fn7.setEditable(false);
+            fn7.setText("");
+
+            c7.setEnabled(false);
+            c7.setEditable(false);
+            c7.setText("");
+
+            n8.setEnabled(false);
+            n8.setEditable(false);
+            n8.setText("");
+
+            fn8.setEnabled(false);
+            fn8.setEditable(false);
+            fn8.setText("");
+
+            c8.setEnabled(false);
+            c8.setEditable(false);
+            c8.setText("");
+
+            n9.setEnabled(false);
+            n9.setEditable(false);
+            n9.setText("");
+
+            fn9.setEnabled(false);
+            fn9.setEditable(false);
+            fn9.setText("");
+
+            c9.setEnabled(false);
+            c9.setEditable(false);
+            c9.setText("");
+
+            n10.setEnabled(false);
+            n10.setEditable(false);
+            n10.setText("");
+
+            fn10.setEnabled(false);
+            fn10.setEditable(false);
+            fn10.setText("");
+
+            c10.setEnabled(false);
+            c10.setEditable(false);
+            c10.setText("");
+
+            c11.setEnabled(false);
+            c11.setEditable(false);
+            c11.setText("");
+    }
+    
     private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
         boolean imag;
         double[] aux;
