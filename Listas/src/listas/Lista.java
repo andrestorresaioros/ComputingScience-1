@@ -73,5 +73,42 @@ public class Lista {
         }
         
     }
+    public void eliminarNodo(Nodo nodoLista,long codigo){
+        if(codigo==nodoLista.getCodigo()){
+            if(nodoLista.getSiguiente()==null && nodoLista.getAnterior()==null){
+                this.cabeza=null;
+            }
+            if(nodoLista.getSiguiente()!=null && nodoLista.getAnterior()==null){
+                this.cabeza= nodoLista.getSiguiente();
+                this.cabeza.setSiguiente(null);
+                this.cabeza.setAnterior(null);
+            }
+            if(nodoLista.getSiguiente()==null && nodoLista.getAnterior()!=null){
+                this.cabeza= nodoLista.getAnterior();
+                this.cabeza.setSiguiente(null);
+                this.cabeza.setAnterior(null);
+            }
+            if(nodoLista.getSiguiente()!=null && nodoLista.getAnterior()!=null){
+                nodoLista.getAnterior().setSiguiente(nodoLista.getSiguiente());
+                nodoLista.getSiguiente().setAnterior(nodoLista.getAnterior());
+            }
+            JOptionPane.showMessageDialog(null, "El nodo se elimino");
+        }else{
+            eliminarNodo(nodoLista.getSiguiente(),codigo);
+        }
+    
+    }
+    public void buscarNodo(Nodo nodoLista,long codigo){
+        if(codigo==nodoLista.getCodigo()){
+            JOptionPane.showMessageDialog(null, "El nodo se encuentra en la lista");
+        }else{
+            if(nodoLista.getSiguiente()==null){
+                JOptionPane.showMessageDialog(null, "El nodo no se encuentra en la lista");
+            }else{
+                buscarNodo(nodoLista.getSiguiente(),codigo);
+            }
+            
+        }
+    }
             
 }
