@@ -79,14 +79,17 @@ public class Lista {
                 this.cabeza=null;
             }
             if(nodoLista.getSiguiente()!=null && nodoLista.getAnterior()==null){
+                
                 this.cabeza= nodoLista.getSiguiente();
                 this.cabeza.setSiguiente(null);
                 this.cabeza.setAnterior(null);
+                
             }
             if(nodoLista.getSiguiente()==null && nodoLista.getAnterior()!=null){
                 this.cabeza= nodoLista.getAnterior();
                 this.cabeza.setSiguiente(null);
                 this.cabeza.setAnterior(null);
+
             }
             if(nodoLista.getSiguiente()!=null && nodoLista.getAnterior()!=null){
                 nodoLista.getAnterior().setSiguiente(nodoLista.getSiguiente());
