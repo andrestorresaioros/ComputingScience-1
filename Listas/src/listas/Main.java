@@ -146,8 +146,9 @@ public class Main extends javax.swing.JFrame {
         Nodo nodo = new Nodo(Nombre.getText(), Long.parseLong(Codigo.getText()));
         if(lista.getCabeza() == null){
             lista.setCabeza(nodo);
+        }else{
+            lista.insertarNodo(nodo, lista.getCabeza());
         }
-        lista.insertarNodo(nodo, lista.getCabeza());
     }//GEN-LAST:event_AgregarNodoActionPerformed
 
     private void MostrarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarListaActionPerformed

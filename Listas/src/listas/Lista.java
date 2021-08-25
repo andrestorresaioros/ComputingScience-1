@@ -1,5 +1,7 @@
 package listas;
 
+import javax.swing.JOptionPane;
+
 public class Lista {
     
     //VARIABLE cabeza de la lista
@@ -41,23 +43,35 @@ public class Lista {
     
     //cuando llame al metodo nodoLista = cabeza;
     public void insertarNodo(Nodo nodo, Nodo nodoLista){
-        if(nodo != nodoLista){
-            if(nodo.getCodigo() <= nodoLista.getCodigo()){
-                nodo.setSiguiente(nodoLista);
-                nodoLista.setAnterior(nodo);
-                if(cabeza == nodoLista)
-                    cabeza = nodo;
-            }else{
-                if(nodo.getCodigo() <= nodoLista.getSiguiente().getCodigo()){
-                    nodo.setSiguiente(nodoLista.getSiguiente());
-                    nodo.setAnterior(nodoLista);
-                    nodoLista.setSiguiente(nodo);
-                    nodoLista.getSiguiente().setAnterior(nodo);                
+        if(nodo.getCodigo() == nodoLista.getCodigo()){
+            JOptionPane.showMessageDialog(null, "El nodo está repetido");
+        }else{
+            if(nodo != nodoLista){
+                if(nodo.getCodigo() < nodoLista.getCodigo()){
+                    nodo.setSiguiente(nodoLista);
+                    nodoLista.setAnterior(nodo);
+                    if(cabeza == nodoLista)
+                        cabeza = nodo;
                 }else{
-                    insertarNodo(nodo,nodoLista.getSiguiente());
+                    if(nodoLista.getSiguiente() != null){
+                        if(nodo.getCodigo() < nodoLista.getSiguiente().getCodigo()){
+                            nodo.setSiguiente(nodoLista.getSiguiente());
+                            nodo.setAnterior(nodoLista);
+                            nodoLista.setSiguiente(nodo);
+                            nodoLista.getSiguiente().setAnterior(nodo);                
+                        }else{
+                            insertarNodo(nodo,nodoLista.getSiguiente());
+                        }
+                    }else{
+                        nodoLista.setAnterior(null);
+                        nodoLista.setSiguiente(nodo);
+                        nodo.setAnterior(nodoLista);
+                        nodo.setSiguiente(null);
+                    }
                 }
             }
         }
+        
     }
             
 }
