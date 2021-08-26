@@ -36,7 +36,7 @@ public class Lista {
     public void mostrarLista(Nodo nodoLista){
         if(nodoLista != null){
             lista += "Nombre: "+nodoLista.getNombre()+"\n";
-            lista += "Código: "+nodoLista.getCodigo()+"\n";
+            lista += "Código: "+nodoLista.getCodigo()+"\n\n";
             mostrarLista(nodoLista.getSiguiente());
         }
     }
@@ -57,13 +57,11 @@ public class Lista {
                         if(nodo.getCodigo() < nodoLista.getSiguiente().getCodigo()){
                             nodo.setSiguiente(nodoLista.getSiguiente());
                             nodo.setAnterior(nodoLista);
-                            nodoLista.setSiguiente(nodo);
-                            nodoLista.getSiguiente().setAnterior(nodo);                
+                            nodoLista.setSiguiente(nodo);                
                         }else{
                             insertarNodo(nodo,nodoLista.getSiguiente());
                         }
                     }else{
-                        nodoLista.setAnterior(null);
                         nodoLista.setSiguiente(nodo);
                         nodo.setAnterior(nodoLista);
                         nodo.setSiguiente(null);
@@ -73,28 +71,28 @@ public class Lista {
         }
         
     }
-    public void eliminarNodo(Nodo nodoLista,long codigo){
-        if(codigo==nodoLista.getCodigo()){
-            if(nodoLista.getSiguiente()==null && nodoLista.getAnterior()==null){
-                this.cabeza=null;
-            }
-            if(nodoLista.getSiguiente()!=null && nodoLista.getAnterior()==null){               
+    
+    public void eliminarNodo(Nodo nodoLista, long codigo){
+        if(nodoLista.getCodigo() == codigo){ // nodoLista será el nodo a eliminar
+            //PRIMERO
+            if(nodoLista.getAnterior() == null){
                 this.cabeza = nodoLista.getSiguiente();
-                this.cabeza.setAnterior(null);
+                nodoLista.getSiguiente().setAnterior(null);
             }
-            if(nodoLista.getSiguiente()==null && nodoLista.getAnterior()!=null){
+            //ULTIMO
+            if(nodoLista.getSiguiente() == null){
                 nodoLista.getAnterior().setSiguiente(null);
             }
-            if(nodoLista.getSiguiente()!=null && nodoLista.getAnterior()!=null){
+            //MEDIO
+            if(nodoLista.getAnterior() != null && nodoLista.getSiguiente() != null){
                 nodoLista.getAnterior().setSiguiente(nodoLista.getSiguiente());
                 nodoLista.getSiguiente().setAnterior(nodoLista.getAnterior());
             }
-            JOptionPane.showMessageDialog(null, "El nodo se elimino");
         }else{
-            eliminarNodo(nodoLista.getSiguiente(),codigo);
+            eliminarNodo(nodoLista.getSiguiente(), codigo);
         }
-    
     }
+    
     public void buscarNodo(Nodo nodoLista,long codigo){
         if(codigo==nodoLista.getCodigo()){
             JOptionPane.showMessageDialog(null, "El nodo se encuentra en la lista");
