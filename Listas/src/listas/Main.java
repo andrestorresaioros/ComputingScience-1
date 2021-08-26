@@ -238,7 +238,6 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_CodigoBActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
-        // TODO add your handling code here:
         lista.eliminarNodo(lista.getCabeza(), Long.parseLong(CodigoE.getText()));
     }//GEN-LAST:event_EliminarActionPerformed
     /**
