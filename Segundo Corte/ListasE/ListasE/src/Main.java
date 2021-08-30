@@ -10,9 +10,10 @@
  */
 public class Main extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Main
-     */
+    Lista lista1 = new Lista();
+    Lista lista2 = new Lista();
+    String result = "";
+    
     public Main() {
         initComponents();
     }
@@ -48,6 +49,11 @@ public class Main extends javax.swing.JFrame {
         jLabel2.setText("Segundo Número");
 
         Calcular.setText("Calcular");
+        Calcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CalcularActionPerformed(evt);
+            }
+        });
 
         Resultado.setColumns(20);
         Resultado.setRows(5);
@@ -109,6 +115,140 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SegundoNumeroActionPerformed
 
+    private void CalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularActionPerformed
+        String[] primero =  PrimerNumero.getText().split("");
+        String[] segundo  = SegundoNumero.getText().split("");
+        
+        //Obtener cabeza 1
+        String num = "";
+        int iterador = 0;
+        int size1 = 0;
+        if(primero.length%4 == 0){
+            num = primero[0]+primero[1]+primero[2]+primero[3];
+            iterador = 4;
+            size1 = primero.length/4;
+        }else{
+            int rest = primero.length%4;
+            switch(rest){
+                case 1:
+                    num = primero[0];
+                    iterador = 1;
+                    size1 = 1+(primero.length/4);
+                    break;
+                case 2:
+                    num = primero[0]+primero[1];
+                    iterador = 2;
+                    size1 = 1+(primero.length/4);
+                    break;
+                case 3:
+                    num = primero[0]+primero[1]+primero[2];
+                    iterador = 3;
+                    size1 = 1+(primero.length/4);
+                    break;
+            }
+        }
+        Nodo nuevo1 = new Nodo(Integer.parseInt(num));
+        lista1.setCabeza(nuevo1); 
+        
+        //LLenar la lista 1
+        lista1.llenarLista(primero,lista1.getCabeza(),iterador);
+        
+        
+        //Obtener cabeza 2
+        num = "";
+        iterador = 0;
+        int size2 = 0;
+        if(segundo.length%4 == 0){
+            num = segundo[0]+segundo[1]+segundo[2]+segundo[3];
+            iterador = 4;
+            size2 = segundo.length/4;
+        }else{
+            int rest = segundo.length%4;
+            switch(rest){
+                case 1:
+                    num = segundo[0];
+                    iterador = 1;
+                    size2 = 1+(segundo.length/4);
+                    break;
+                case 2:
+                    num = segundo[0]+segundo[1];
+                    iterador = 2;
+                    size2 = 1+(segundo.length/4);
+                    break;
+                case 3:
+                    num = segundo[0]+segundo[1]+segundo[2];
+                    iterador = 3;
+                    size2 = 1+(segundo.length/4);
+                    break;
+            }
+        }
+        Nodo nuevo2 = new Nodo(Integer.parseInt(num));
+        lista2.setCabeza(nuevo2); 
+        
+        //LLenar la lista 2
+        lista2.llenarLista(segundo,lista2.getCabeza(),iterador);
+        
+        
+        //igualar tamaños de la lista
+        if(size1 != size2){
+            if(size1 < size2){
+                for(int i=0;i<size2-size1;i++){
+                    Nodo nuevo = new Nodo(0);
+                    lista1.getCabeza().setAnterior(nuevo);
+                    nuevo.setSiguiente(lista1.getCabeza());
+                    lista1.setCabeza(nuevo);
+                }
+            }else{
+                for(int i=0;i<size1-size2;i++){
+                    Nodo nuevo = new Nodo(0);
+                    lista2.getCabeza().setAnterior(nuevo);
+                    nuevo.setSiguiente(lista2.getCabeza());
+                    lista2.setCabeza(nuevo);
+                }
+            }
+        }
+        
+        lista1.encontrarCola(lista1.getCabeza());
+        lista2.encontrarCola(lista2.getCabeza());
+        
+        sumar(lista1.getCola(),lista2.getCola(),0);
+        lista1.mostrarLista(lista1.getCabeza());
+        lista2.mostrarLista(lista2.getCabeza());
+        acomodarResultado();
+        this.Resultado.setText(lista1.getLista()+"\n"+lista2.getLista()+"\n"+"________________________________________"+"\n"+result);
+    }//GEN-LAST:event_CalcularActionPerformed
+    
+    private void acomodarResultado(){
+        int size = this.result.length();
+        String newResult = "";
+        if(size%4 == 0){
+            for(int i=size;i>=4;i-=4){
+                newResult += this.result.substring(i-4, i);
+            }
+        }else{
+            newResult += this.result.substring(4*((int)size/4), size);
+            for(int i=4*((int)size/4);i>=4;i-=4){
+                newResult += this.result.substring(i-4, i);
+            }
+        }
+        result = newResult;
+    }
+    
+    private void sumar(Nodo nodoLista1, Nodo nodoLista2,int lleva){
+        if(nodoLista1 != null && nodoLista2 != null){
+            int sum = nodoLista1.getNumero() + nodoLista2.getNumero() + lleva;
+            if(sum/10000 <= 0){                                                  //tiene 4 cifras
+                lleva = 0;
+                this.result += sum;
+            }else{                                                              //tiene 5 cifras
+                lleva = sum/10000;
+                String aux = sum+"";
+                this.result += Integer.parseInt(aux.substring(1));
+            }
+            sumar(nodoLista1.getAnterior(),nodoLista2.getAnterior(),lleva);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
