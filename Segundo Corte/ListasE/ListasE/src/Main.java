@@ -63,8 +63,8 @@ public class Main extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(Calcular, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -75,7 +75,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addComponent(PrimerNumero, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
                         .addComponent(SegundoNumero)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,6 +116,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_SegundoNumeroActionPerformed
 
     private void CalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularActionPerformed
+        this.result = "";
         String[] primero =  PrimerNumero.getText().split("");
         String[] segundo  = SegundoNumero.getText().split("");
         
@@ -243,7 +244,7 @@ public class Main extends javax.swing.JFrame {
             }else{                                                              //tiene 5 cifras
                 lleva = sum/10000;
                 String aux = sum+"";
-                this.result += Integer.parseInt(aux.substring(1));
+                this.result += aux.substring(1);
             }
             sumar(nodoLista1.getAnterior(),nodoLista2.getAnterior(),lleva);
         }
