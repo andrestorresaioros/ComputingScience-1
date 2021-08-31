@@ -238,10 +238,19 @@ public class Main extends javax.swing.JFrame {
     private void sumar(Nodo nodoLista1, Nodo nodoLista2,int lleva){
         if(nodoLista1 != null && nodoLista2 != null){
             int sum = nodoLista1.getNumero() + nodoLista2.getNumero() + lleva;
-            if(sum/10000 <= 0){                                                  //tiene 4 cifras
+            if(sum/10 == 0){
+                lleva = 0;
+                this.result += "0"+"0"+"0"+sum;
+            }else if(sum/100 == 0){
+                lleva = 0;
+                this.result += "0"+"0"+sum;
+            }else if(sum/1000 == 0){
+                lleva = 0;
+                this.result += "0"+sum;
+            }else if(sum/10000 == 0){
                 lleva = 0;
                 this.result += sum;
-            }else{                                                              //tiene 5 cifras
+            }else if(sum/100000 == 0){
                 lleva = sum/10000;
                 String aux = sum+"";
                 this.result += aux.substring(1);
