@@ -9,11 +9,11 @@ public class NodoEstudiante {
         this.nombre = nombre;
     }
     
-    public void setSiguiente(NodoEstudiante abajo){
+    public void setAbajo(NodoEstudiante abajo){
         this.abajo = abajo;
     }
     
-    public void setAnterior(NodoEstudiante arriba){
+    public void setArriba(NodoEstudiante arriba){
         this.arriba = arriba;
     }
     

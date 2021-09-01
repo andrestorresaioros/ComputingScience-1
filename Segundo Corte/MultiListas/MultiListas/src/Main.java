@@ -277,10 +277,7 @@ public class Main extends javax.swing.JFrame {
             NodoMateria nuevo = new NodoMateria(IngresarMateria.getText());
             lista.insertarMateria(nuevo, lista.getCabeza());
         }
-        
-        
-        
-        
+           
     }//GEN-LAST:event_InsertarNombreMateriaActionPerformed
 
     private void RetirarNombreEstructuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetirarNombreEstructuraActionPerformed
@@ -292,7 +289,10 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_MateriaEliminarActionPerformed
 
     private void InsertarNombreEstructura1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertarNombreEstructura1ActionPerformed
-        // TODO add your handling code here:
+        
+        NodoEstudiante nuevo = new NodoEstudiante(NombreAlumno.getText());
+        lista.insertarEstudiante(nuevo,lista.getCabeza(),NombreMateria.getText());
+        
     }//GEN-LAST:event_InsertarNombreEstructura1ActionPerformed
 
     private void NombreMultilistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreMultilistaActionPerformed
