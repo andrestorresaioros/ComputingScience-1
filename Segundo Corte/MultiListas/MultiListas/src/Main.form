@@ -205,11 +205,17 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="NombreMultilista">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NombreMultilistaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="CrearMultilista">
           <Properties>
             <Property name="text" type="java.lang.String" value="Crear Multilista"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CrearMultilistaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ListarMultilista">
           <Properties>

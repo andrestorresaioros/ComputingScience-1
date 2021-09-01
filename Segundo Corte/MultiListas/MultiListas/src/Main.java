@@ -10,9 +10,9 @@
  */
 public class Main extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Main
-     */
+    
+    Lista lista;
+    
     public Main() {
         initComponents();
     }
@@ -58,7 +58,18 @@ public class Main extends javax.swing.JFrame {
 
         jLabel1.setText("Escriba el nombre de la Multilista");
 
+        NombreMultilista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreMultilistaActionPerformed(evt);
+            }
+        });
+
         CrearMultilista.setText("Crear Multilista");
+        CrearMultilista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearMultilistaActionPerformed(evt);
+            }
+        });
 
         ListarMultilista.setText("Listar Multilista");
 
@@ -258,7 +269,18 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void InsertarNombreMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertarNombreMateriaActionPerformed
-        // TODO add your handling code here:
+        
+        if(lista.getCabeza() == null){
+            NodoMateria nuevo = new NodoMateria(IngresarMateria.getText());
+            lista.setCabeza(nuevo);
+        }else{
+            NodoMateria nuevo = new NodoMateria(IngresarMateria.getText());
+            lista.insertarMateria(nuevo, lista.getCabeza());
+        }
+        
+        
+        
+        
     }//GEN-LAST:event_InsertarNombreMateriaActionPerformed
 
     private void RetirarNombreEstructuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetirarNombreEstructuraActionPerformed
@@ -272,6 +294,15 @@ public class Main extends javax.swing.JFrame {
     private void InsertarNombreEstructura1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertarNombreEstructura1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_InsertarNombreEstructura1ActionPerformed
+
+    private void NombreMultilistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreMultilistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreMultilistaActionPerformed
+
+    private void CrearMultilistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearMultilistaActionPerformed
+        lista = new Lista();
+        lista.setNombre(NombreMultilista.getText());
+    }//GEN-LAST:event_CrearMultilistaActionPerformed
 
     /**
      * @param args the command line arguments

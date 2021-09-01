@@ -1,21 +1,20 @@
 public class NodoEstudiante {
     
     private String nombre;
-    private NodoEstudiante siguiente_abajo;
-    private NodoEstudiante anterior_arriba;
+    private NodoEstudiante abajo;
+    private NodoEstudiante arriba;
     
 
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
     
-    
-    public void setSiguiente(NodoEstudiante siguiente){
-        this.siguiente_abajo = siguiente_abajo;
+    public void setSiguiente(NodoEstudiante abajo){
+        this.abajo = abajo;
     }
     
-    public void setAnterior(NodoEstudiante anterior){
-        this.anterior_arriba = anterior;
+    public void setAnterior(NodoEstudiante arriba){
+        this.arriba = arriba;
     }
     
     public String getNombre(){
@@ -23,20 +22,20 @@ public class NodoEstudiante {
     }
     
     
-    public NodoEstudiante getSiguiente(){
-        return this.siguiente_abajo;
+    public NodoEstudiante getArriba(){
+        return this.arriba;
     }
     
-    public NodoEstudiante getAnterior(){
-        return this.anterior_arriba;
+    public NodoEstudiante getAbajo(){
+        return this.abajo;
     }
     
     
     //CONSTRUCTOR
     public NodoEstudiante(String nombre){
         this.nombre = nombre;
-        this.siguiente_abajo = null;
-        this.anterior_arriba = null;
+        this.abajo = null;
+        this.arriba = null;
     }
     
 }
