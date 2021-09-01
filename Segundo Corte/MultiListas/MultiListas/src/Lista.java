@@ -5,6 +5,24 @@ public class Lista {
     
     private String nombre;
     private NodoMateria cabeza;
+    private NodoEstudiante cabeza2;
+    private String lista = "";
+
+    public NodoEstudiante getCabeza2() {
+        return cabeza2;
+    }
+
+    public void setCabeza2(NodoEstudiante cabeza2) {
+        this.cabeza2 = cabeza2;
+    }
+
+    public String getLista() {
+        return lista;
+    }
+
+    public void setLista(String lista) {
+        this.lista = lista;
+    }
     
     public void setCabeza(NodoMateria cabeza){
         this.cabeza = cabeza;
@@ -25,6 +43,8 @@ public class Lista {
     //CONSTRUCTOR
     public Lista(){
         this.cabeza = null;
+        //
+        this.cabeza2=null;
     }
     
     //INSERTAR MATERIA
@@ -104,9 +124,17 @@ public class Lista {
             }
         }
     }
-    
+    public void mostrarLista(NodoMateria nodoLista){
+        if(nodoLista != null){
+            lista += "Materia: "+nodoLista.getNombre()+"\n";
+            mostrarLista(nodoLista.getSiguiente());
+        }
+            
+        }
+    }
+
     //ELIMINAR MATERIA
     //ELEIMINAR ESTUDIANTE
     
     
-}
+
