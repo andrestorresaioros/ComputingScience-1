@@ -134,6 +134,11 @@ public class Main extends javax.swing.JFrame {
         jLabel11.setText("Ingrese el nombre de una materia");
 
         RetirarAsignatura.setText("Retirar Asignatura");
+        RetirarAsignatura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RetirarAsignaturaActionPerformed(evt);
+            }
+        });
 
         Resultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -313,7 +318,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_InsertarNombreMateriaActionPerformed
 
     private void RetirarNombreEstructuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetirarNombreEstructuraActionPerformed
-        // TODO add your handling code here:
+       lista.eliminarEstudiante(AlumnoEliminar.getText(),MateriaEliminar.getText(),lista.getCabeza());
     }//GEN-LAST:event_RetirarNombreEstructuraActionPerformed
 
     private void MateriaEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MateriaEliminarActionPerformed
@@ -346,6 +351,10 @@ public class Main extends javax.swing.JFrame {
         modelo.addRow(estudiante);
         this.Resultados.setModel(modelo);
     }//GEN-LAST:event_ListarMultilistaActionPerformed
+
+    private void RetirarAsignaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetirarAsignaturaActionPerformed
+       lista.eliminarMateria(EliminarMateria.getText(), lista.getCabeza());
+    }//GEN-LAST:event_RetirarAsignaturaActionPerformed
 
     /**
      * @param args the command line arguments

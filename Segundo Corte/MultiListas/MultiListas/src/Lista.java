@@ -131,10 +131,61 @@ public class Lista {
         }
             
         }
-    }
 
     //ELIMINAR MATERIA
+    public void eliminarMateria(String materia, NodoMateria nodoListaMateria){
+        if(nodoListaMateria != null){
+            if(nodoListaMateria.getNombre().equals(materia)){
+                if(nodoListaMateria == this.cabeza){
+                    nodoListaMateria.setSiguiente(null);
+                }
+                if(nodoListaMateria.getSiguiente() == null && nodoListaMateria.getAnterior() != null){
+                    nodoListaMateria.getAnterior().setSiguiente(null);
+                }
+                if(nodoListaMateria.getAnterior() != null && nodoListaMateria.getSiguiente() != null){
+                    nodoListaMateria.getAnterior().setSiguiente(nodoListaMateria.getSiguiente());
+                    nodoListaMateria.getSiguiente().setAnterior(nodoListaMateria.getAnterior());
+                }
+            }else{
+                eliminarMateria(materia,nodoListaMateria.getSiguiente());
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "La materia ingresada no se encuentra en la lista "+this.nombre);
+        }
+    }
+    
     //ELEIMINAR ESTUDIANTE
+    public void eliminarEstudiante(String estudiante, String materia, NodoMateria nodoListaMateria){
+        if(nodoListaMateria != null){
+            if(nodoListaMateria.getNombre().equalsIgnoreCase(materia)){
+                eliminarEstudiante_2(estudiante,nodoListaMateria.getAbajo(),nodoListaMateria);
+            }else{
+                eliminarEstudiante(estudiante, materia, nodoListaMateria.getSiguiente());
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "La materia ingresada no se encuentra en la lista "+this.nombre);
+        }
+    }
     
+    private void eliminarEstudiante_2(String estudiante, NodoEstudiante nodoListaEstudiante, NodoMateria materia){
+        if(nodoListaEstudiante != null){
+            if(nodoListaEstudiante.getNombre().equals(estudiante)){
+                if(nodoListaEstudiante == materia.getAbajo()){
+                    materia.setAbajo(nodoListaEstudiante.getAbajo());
+                }
+                if(nodoListaEstudiante.getAbajo() == null && nodoListaEstudiante.getArriba() != null){
+                    nodoListaEstudiante.getArriba().setAbajo(null);
+                }
+                if(nodoListaEstudiante.getArriba() != null && nodoListaEstudiante.getAbajo() != null){
+                    nodoListaEstudiante.getArriba().setAbajo(nodoListaEstudiante.getAbajo());
+                    nodoListaEstudiante.getAbajo().setArriba(nodoListaEstudiante.getArriba());
+                }
+            }else{
+                eliminarEstudiante_2(estudiante,nodoListaEstudiante.getAbajo(),materia);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "El estudiante ingresado no se encuentra en la lista "+this.nombre);
+        }        
+    }
     
-
+}
