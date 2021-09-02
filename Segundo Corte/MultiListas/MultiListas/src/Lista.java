@@ -1,27 +1,21 @@
-
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Lista {
     
     private String nombre;
     private NodoMateria cabeza;
-    private NodoEstudiante cabeza2;
-    private String lista = "";
+    private ArrayList<NodoMateria> listaMateria = new ArrayList();
+   
 
-    public NodoEstudiante getCabeza2() {
-        return cabeza2;
+
+    
+    public ArrayList<NodoMateria> getListaMateria() {
+        return listaMateria;
     }
 
-    public void setCabeza2(NodoEstudiante cabeza2) {
-        this.cabeza2 = cabeza2;
-    }
-
-    public String getLista() {
-        return lista;
-    }
-
-    public void setLista(String lista) {
-        this.lista = lista;
+    public void setListaMateria(ArrayList<NodoMateria> lista) {
+        this.listaMateria = lista;
     }
     
     public void setCabeza(NodoMateria cabeza){
@@ -43,8 +37,6 @@ public class Lista {
     //CONSTRUCTOR
     public Lista(){
         this.cabeza = null;
-        //
-        this.cabeza2=null;
     }
     
     //INSERTAR MATERIA
@@ -124,13 +116,22 @@ public class Lista {
             }
         }
     }
-    public void mostrarLista(NodoMateria nodoLista){
+    public void mostrarListaMateria(NodoMateria nodoLista){
         if(nodoLista != null){
-            lista += "Materia: "+nodoLista.getNombre()+"\n";
-            mostrarLista(nodoLista.getSiguiente());
+           listaMateria.add(nodoLista);
+           mostrarListaMateria(nodoLista.getSiguiente());
         }
             
+       }
+    public void mostrarListaEstudiante(NodoEstudiante nodoLista,ArrayList<String> arreglo){
+        if(nodoLista != null){
+           //listaEstudiante.add(nodoLista.getNombre());
+           arreglo.add(nodoLista.getNombre());
+           mostrarListaEstudiante(nodoLista.getAbajo(),arreglo);
         }
+            
+       }
+    
 
     //ELIMINAR MATERIA
     public void eliminarMateria(String materia, NodoMateria nodoListaMateria){

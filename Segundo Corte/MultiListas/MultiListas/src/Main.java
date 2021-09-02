@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -13,14 +14,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Main extends javax.swing.JFrame {
     DefaultTableModel modelo;
-    String []estudiante= new String[3];
-
     
     Lista lista;
     
     public Main() {
         initComponents();
-        modelo= new DefaultTableModel();
+        
     }
 
     /**
@@ -343,13 +342,24 @@ public class Main extends javax.swing.JFrame {
 
     private void ListarMultilistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarMultilistaActionPerformed
         //lista.setLista("");
-        lista.mostrarLista(lista.getCabeza());
-        resultado.setText(lista.getLista());
-        modelo.addColumn(lista.getLista());
-        resultado.setText(lista.getLista());
-        estudiante[0]="yuneider";
-        modelo.addRow(estudiante);
+        modelo= new DefaultTableModel();//listar multi
+        ArrayList<NodoMateria> listaNueva = new ArrayList();
+        lista.setListaMateria(listaNueva);
+        lista.mostrarListaMateria(lista.getCabeza());
+        
+        for(int i=0;i<lista.getListaMateria().size();i++){
+            ArrayList<String> listaE= new ArrayList();
+            lista.mostrarListaEstudiante(lista.getListaMateria().get(i).getAbajo(), listaE);
+            String []estudiante= new String[listaE.size()];
+            for(int j=0;j<listaE.size();j++){
+                estudiante[j]=listaE.get(j);  
+            }
+            if(estudiante!=null){
+                modelo.addColumn(lista.getListaMateria().get(i).getNombre(), estudiante);
+            }     
+        }
         this.Resultados.setModel(modelo);
+        
     }//GEN-LAST:event_ListarMultilistaActionPerformed
 
     private void RetirarAsignaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetirarAsignaturaActionPerformed
