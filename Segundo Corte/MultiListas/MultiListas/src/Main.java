@@ -58,8 +58,6 @@ public class Main extends javax.swing.JFrame {
         RetirarAsignatura = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Resultados = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        resultado = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,22 +137,16 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        Resultados.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         Resultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "                                Tabla de Materias y Estudiantes"
             }
         ));
         jScrollPane1.setViewportView(Resultados);
-
-        resultado.setColumns(20);
-        resultado.setRows(5);
-        jScrollPane2.setViewportView(resultado);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -223,25 +215,20 @@ public class Main extends javax.swing.JFrame {
                                 .addGap(12, 12, 12)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(43, 43, 43)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ListarMultilista))))
+                        .addComponent(ListarMultilista)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(NombreMultilista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CrearMultilista)
-                            .addComponent(ListarMultilista))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(NombreMultilista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CrearMultilista)
+                    .addComponent(ListarMultilista))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -341,8 +328,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_CrearMultilistaActionPerformed
 
     private void ListarMultilistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarMultilistaActionPerformed
-        //lista.setLista("");
-        modelo= new DefaultTableModel();//listar multi
+        modelo= new DefaultTableModel();
         ArrayList<NodoMateria> listaNueva = new ArrayList();
         lista.setListaMateria(listaNueva);
         lista.mostrarListaMateria(lista.getCabeza());
@@ -356,8 +342,10 @@ public class Main extends javax.swing.JFrame {
             }
             if(estudiante!=null){
                 modelo.addColumn(lista.getListaMateria().get(i).getNombre(), estudiante);
-            }     
+            }
+            
         }
+        
         this.Resultados.setModel(modelo);
         
     }//GEN-LAST:event_ListarMultilistaActionPerformed
@@ -429,7 +417,5 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea resultado;
     // End of variables declaration//GEN-END:variables
 }
