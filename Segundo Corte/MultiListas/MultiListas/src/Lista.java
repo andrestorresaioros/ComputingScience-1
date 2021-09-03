@@ -138,8 +138,9 @@ public class Lista {
         if(nodoListaMateria != null){
             if(nodoListaMateria.getNombre().equals(materia)){
                 if(nodoListaMateria == this.cabeza){
-                    nodoListaMateria.setSiguiente(null);
-                    this.cabeza=null;
+                    this.cabeza=nodoListaMateria.getSiguiente();
+
+                    
                 }
                 if(nodoListaMateria.getSiguiente() == null && nodoListaMateria.getAnterior() != null){
                     nodoListaMateria.getAnterior().setSiguiente(null);
