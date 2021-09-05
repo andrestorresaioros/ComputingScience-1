@@ -11,9 +11,8 @@ package matricesdispersas;
  */
 public class Matrices extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Matrices
-     */
+    Lista listaA = new Lista();
+    Lista listaB = new Lista();
     public Matrices() {
         initComponents();
     }
@@ -207,11 +206,29 @@ public class Matrices extends javax.swing.JFrame {
     }//GEN-LAST:event_FilaBActionPerformed
 
     private void InsertarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertarBActionPerformed
-        // TODO add your handling code here:
+       
+        NodoColumna nuevaColumna = new NodoColumna(Integer.parseInt(this.ColumnaB.getText()));
+        NodoFila nuevaFila = new NodoFila(Integer.parseInt(this.FilaB.getText()),Integer.parseInt(this.ValorB.getText()));
+        if(listaB.getCabeza() == null){
+            listaB.setCabeza(nuevaColumna);
+            nuevaColumna.setAbajo(nuevaFila);
+        }else{
+            listaB.insertar(nuevaColumna, nuevaFila, listaB.getCabeza());
+        }
+        
     }//GEN-LAST:event_InsertarBActionPerformed
 
     private void InsertarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertarAActionPerformed
-        // TODO add your handling code here:
+       
+        NodoColumna nuevaColumna = new NodoColumna(Integer.parseInt(this.ColumnaA.getText()));
+        NodoFila nuevaFila = new NodoFila(Integer.parseInt(this.FilaA.getText()),Integer.parseInt(this.ValorA.getText()));
+        if(listaA.getCabeza() == null){
+            listaA.setCabeza(nuevaColumna);
+            nuevaColumna.setAbajo(nuevaFila);
+        }else{
+            listaA.insertar(nuevaColumna, nuevaFila, listaA.getCabeza());
+        }
+        
     }//GEN-LAST:event_InsertarAActionPerformed
 
     /**
