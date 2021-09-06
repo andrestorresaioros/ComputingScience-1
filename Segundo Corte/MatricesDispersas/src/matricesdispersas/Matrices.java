@@ -5,14 +5,17 @@
  */
 package matricesdispersas;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author cesar
  */
 public class Matrices extends javax.swing.JFrame {
-
+    DefaultTableModel modelo;
+    
     Lista listaA = new Lista();
     Lista listaB = new Lista();
     public Matrices() {
@@ -85,9 +88,7 @@ public class Matrices extends javax.swing.JFrame {
 
         TablaR.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Columna", "Fila", "Valor"
@@ -132,9 +133,7 @@ public class Matrices extends javax.swing.JFrame {
 
         TablaB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Columna", "Fila", "Valor"
@@ -144,9 +143,7 @@ public class Matrices extends javax.swing.JFrame {
 
         TablaA.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Columna", "Fila", "Valor"
@@ -240,9 +237,10 @@ public class Matrices extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
@@ -258,15 +256,17 @@ public class Matrices extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(InsertarB)
-                            .addComponent(MostrarB)))
+                            .addComponent(MostrarB))
+                        .addGap(40, 40, 40))
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 56, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addGap(40, 40, 40)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(MultiplicarM, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(MultiplicarM, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -274,7 +274,7 @@ public class Matrices extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(MostrarAB, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -352,9 +352,25 @@ public class Matrices extends javax.swing.JFrame {
     }//GEN-LAST:event_MultiplicarMActionPerformed
 
     private void MostrarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarAActionPerformed
-        
-        
-        
+        modelo= (DefaultTableModel)TablaA.getModel();
+        int rows=modelo.getRowCount();
+        for(int i=rows-1;i>=0;i--){
+            modelo.removeRow(i);
+        }
+        NodoColumna columna= listaA.getCabeza();
+        while(columna!=null){
+            NodoFila fila=columna.getAbajo();
+            while(fila!=null){
+                String[] lista= new String[3]; 
+                lista[0]=columna.getColumna()+"";
+                lista[1]=fila.getFila()+"";
+                lista[2]=fila.getValor()+"";
+                modelo.addRow(lista);
+                fila=fila.getAbajo();
+            }
+            columna= columna.getSiguiente();
+        }
+        this.TablaA.setModel(modelo);
     }//GEN-LAST:event_MostrarAActionPerformed
 
     private void MostrarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarBActionPerformed

@@ -1,5 +1,6 @@
 package matricesdispersas;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Lista {
@@ -7,6 +8,15 @@ public class Lista {
     private NodoColumna cabeza;
     private int columnaMayor;
     private int filaMayor;
+    private ArrayList<NodoColumna> listaColumna = new ArrayList();
+
+    public ArrayList<NodoColumna> getListaColumna() {
+        return listaColumna;
+    }
+
+    public void setListaColumna(ArrayList<NodoColumna> listaColumna) {
+        this.listaColumna = listaColumna;
+    }
     
     
     //GETTERS Y SETTERS
@@ -129,7 +139,20 @@ public class Lista {
             }    
         }
     }
-    
+    public void mostrarListaColumna(NodoColumna nodoLista){
+        if(nodoLista != null){
+           listaColumna.add(nodoLista);
+           mostrarListaColumna(nodoLista.getSiguiente());
+        }
+            
+       }
+    public void mostrarListaFila(NodoFila nodoLista,ArrayList<String> arreglo){
+        if(nodoLista != null){
+           arreglo.add(nodoLista.getFila()+"");
+           mostrarListaFila(nodoLista.getAbajo(),arreglo);
+        }
+            
+       }
     
     
     
