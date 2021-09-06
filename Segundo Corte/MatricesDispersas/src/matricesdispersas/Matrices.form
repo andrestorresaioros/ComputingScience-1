@@ -275,11 +275,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Mostrar B"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MostrarBActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="MostrarA">
           <Properties>
             <Property name="text" type="java.lang.String" value="MostrarA"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MostrarAActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="MultiplicarM">
           <Properties>

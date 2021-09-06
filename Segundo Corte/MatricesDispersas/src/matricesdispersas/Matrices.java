@@ -5,6 +5,8 @@
  */
 package matricesdispersas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author cesar
@@ -107,8 +109,18 @@ public class Matrices extends javax.swing.JFrame {
         });
 
         MostrarB.setText("Mostrar B");
+        MostrarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MostrarBActionPerformed(evt);
+            }
+        });
 
         MostrarA.setText("MostrarA");
+        MostrarA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MostrarAActionPerformed(evt);
+            }
+        });
 
         MultiplicarM.setText("Multiplicar A y B");
         MultiplicarM.addActionListener(new java.awt.event.ActionListener() {
@@ -286,38 +298,61 @@ public class Matrices extends javax.swing.JFrame {
 
     private void InsertarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertarBActionPerformed
        
-        NodoColumna nuevaColumna = new NodoColumna(Integer.parseInt(this.ColumnaB.getText()));
-        NodoFila nuevaFila = new NodoFila(Integer.parseInt(this.FilaB.getText()),Integer.parseInt(this.ValorB.getText()));
-        if(listaB.getCabeza() == null){
-            listaB.setCabeza(nuevaColumna);
-            nuevaColumna.setAbajo(nuevaFila);
+        if(Integer.parseInt(this.ValorB.getText()) == 0){
+            JOptionPane.showMessageDialog(null, "Inserte un valor diferente de cero");
         }else{
-            listaB.insertar(nuevaColumna, nuevaFila, listaB.getCabeza());
+            NodoColumna nuevaColumna = new NodoColumna(Integer.parseInt(this.ColumnaB.getText()));
+            NodoFila nuevaFila = new NodoFila(Integer.parseInt(this.FilaB.getText()),Integer.parseInt(this.ValorB.getText()));
+            if(listaB.getCabeza() == null){
+                listaB.setCabeza(nuevaColumna);
+                nuevaColumna.setAbajo(nuevaFila);
+            }else{
+                listaB.insertar(nuevaColumna, nuevaFila, listaB.getCabeza());
+            }
         }
         
     }//GEN-LAST:event_InsertarBActionPerformed
 
     private void InsertarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertarAActionPerformed
        
-        NodoColumna nuevaColumna = new NodoColumna(Integer.parseInt(this.ColumnaA.getText()));
-        NodoFila nuevaFila = new NodoFila(Integer.parseInt(this.FilaA.getText()),Integer.parseInt(this.ValorA.getText()));
-        if(listaA.getCabeza() == null){
-            listaA.setCabeza(nuevaColumna);
-            nuevaColumna.setAbajo(nuevaFila);
+        if(Integer.parseInt(this.ValorA.getText()) == 0){
+            JOptionPane.showMessageDialog(null, "Inserte un valor diferente de cero");
         }else{
-            listaA.insertar(nuevaColumna, nuevaFila, listaA.getCabeza());
+            NodoColumna nuevaColumna = new NodoColumna(Integer.parseInt(this.ColumnaA.getText()));
+            NodoFila nuevaFila = new NodoFila(Integer.parseInt(this.FilaA.getText()),Integer.parseInt(this.ValorA.getText()));
+            if(listaA.getCabeza() == null){
+                listaA.setCabeza(nuevaColumna);
+                nuevaColumna.setAbajo(nuevaFila);
+            }else{
+                listaA.insertar(nuevaColumna, nuevaFila, listaA.getCabeza());
+            }
         }
         
     }//GEN-LAST:event_InsertarAActionPerformed
 
     private void MultiplicarMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MultiplicarMActionPerformed
-        // TODO add your handling code here:
-        /*
+
+        listaA.mayores();
+        listaB.mayores();
+        if(listaA.getColumnaMayor() != listaB.getFilaMayor()){
+            JOptionPane.showMessageDialog(null, "La multiplicación de las matrices no es posible debido a su tamaño");
+        }else{
+            //HACER LA MULTIPLICACIÓN
+        }
         
-        
-        
-        */
     }//GEN-LAST:event_MultiplicarMActionPerformed
+
+    private void MostrarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarAActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_MostrarAActionPerformed
+
+    private void MostrarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarBActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_MostrarBActionPerformed
 
     /**
      * @param args the command line arguments
