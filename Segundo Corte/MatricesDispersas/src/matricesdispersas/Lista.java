@@ -137,9 +137,9 @@ public class Lista {
                     if(nodoListaColumna.getSiguiente() == null){
                         nodoListaColumna.setSiguiente(nuevaColumna);
                         nuevaColumna.setAnterior(nodoListaColumna);
-                        insertarResultado2(nuevaFila,nodoListaColumna.getSiguiente().getAbajo(),nodoListaColumna.getSiguiente());
+                        insertarResultado2(nuevaFila,nuevaColumna.getAbajo(),nuevaColumna);
                     }else{
-                        insertar(nuevaColumna, nuevaFila, nodoListaColumna.getSiguiente());
+                        insertarResultado(nuevaColumna, nuevaFila, nodoListaColumna.getSiguiente());
                     }
                 }
             }
@@ -154,6 +154,7 @@ public class Lista {
                 if(nuevaFila.getFila()<nodoListaFila.getFila()){
                     if(nodoListaFila == columna.getAbajo()){
                         columna.getAbajo().setArriba(nuevaFila);
+                        nuevaFila.setAbajo(columna.getAbajo());
                         columna.setAbajo(nuevaFila);
                     }else{
                         nodoListaFila.getArriba().setAbajo(nuevaFila);
@@ -166,7 +167,7 @@ public class Lista {
                         nodoListaFila.setAbajo(nuevaFila);
                         nuevaFila.setArriba(nodoListaFila);
                     }else{
-                        insertar2(nuevaFila,nodoListaFila.getAbajo(),columna);
+                        insertarResultado2(nuevaFila,nodoListaFila.getAbajo(),columna);
                     }
                 }
             }
