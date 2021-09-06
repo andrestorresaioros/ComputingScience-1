@@ -18,6 +18,8 @@ public class Matrices extends javax.swing.JFrame {
     
     Lista listaA = new Lista();
     Lista listaB = new Lista();
+    Lista listaC = new Lista();
+    
     public Matrices() {
         initComponents();
     }
@@ -346,11 +348,36 @@ public class Matrices extends javax.swing.JFrame {
         if(listaA.getColumnaMayor() != listaB.getFilaMayor()){
             JOptionPane.showMessageDialog(null, "La multiplicación de las matrices no es posible debido a su tamaño");
         }else{
-            //HACER LA MULTIPLICACIÓN
+            multiplicar();
         }
         
     }//GEN-LAST:event_MultiplicarMActionPerformed
 
+    public void multiplicar(){
+        NodoColumna columnaA = listaA.getCabeza();
+        while(columnaA != null){
+            NodoColumna columnaB = listaB.getCabeza();
+            while(columnaB != null){
+                NodoFila filaB = columnaB.getAbajo();
+                while(filaB != null){
+                    if(columnaA.getColumna() == filaB.getFila()){
+                        NodoFila filaA = columnaA.getAbajo();
+                        while(filaA != null){
+                            NodoColumna nuevaColumna = new NodoColumna(columnaB.getColumna());
+                            NodoFila nuevaFila = new NodoFila(filaA.getFila(),filaA.getValor()*filaB.getValor());
+                            if(listaC.getCabeza() == null){
+                                listaC.setCabeza(nuevaColumna);
+                                nuevaColumna.setAbajo(nuevaFila);
+                            }else{
+                                listaC.insertarResultado(nuevaColumna, nuevaFila, listaC.getCabeza());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     private void MostrarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarAActionPerformed
         modelo= (DefaultTableModel)TablaA.getModel();
         int rows=modelo.getRowCount();

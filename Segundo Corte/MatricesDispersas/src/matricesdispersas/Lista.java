@@ -64,7 +64,7 @@ public class Lista {
                         nuevaColumna.setSiguiente(cabeza);
                         this.cabeza.setAnterior(nuevaColumna);
                         this.cabeza = nuevaColumna;
-                        insertar2(nuevaFila,nodoListaColumna.getSiguiente().getAbajo(),nodoListaColumna.getSiguiente());
+                        insertar2(nuevaFila,nuevaColumna.getAbajo(),nuevaColumna);
                     }else{
                         nodoListaColumna.getAnterior().setSiguiente(nuevaColumna);
                         nuevaColumna.setAnterior(nodoListaColumna.getAnterior());
@@ -93,6 +93,7 @@ public class Lista {
                 if(nuevaFila.getFila()<nodoListaFila.getFila()){
                     if(nodoListaFila == columna.getAbajo()){
                         columna.getAbajo().setArriba(nuevaFila);
+                        nuevaFila.setAbajo(columna.getAbajo());
                         columna.setAbajo(nuevaFila);
                     }else{
                         nodoListaFila.getArriba().setAbajo(nuevaFila);
@@ -114,6 +115,66 @@ public class Lista {
         }
     }
 
+    public void insertarResultado(NodoColumna nuevaColumna, NodoFila nuevaFila, NodoColumna nodoListaColumna){
+        if(nodoListaColumna != null){
+            if(nuevaColumna.getColumna() == nodoListaColumna.getColumna()){
+                insertarResultado2(nuevaFila,nodoListaColumna.getAbajo(),nodoListaColumna);
+            }else{
+                if(nuevaColumna.getColumna()<nodoListaColumna.getColumna()){
+                    if(nodoListaColumna == this.cabeza){
+                        nuevaColumna.setSiguiente(cabeza);
+                        this.cabeza.setAnterior(nuevaColumna);
+                        this.cabeza = nuevaColumna;
+                        insertarResultado2(nuevaFila,nodoListaColumna.getSiguiente().getAbajo(),nodoListaColumna.getSiguiente());
+                    }else{
+                        nodoListaColumna.getAnterior().setSiguiente(nuevaColumna);
+                        nuevaColumna.setAnterior(nodoListaColumna.getAnterior());
+                        nuevaColumna.setSiguiente(nodoListaColumna);
+                        nodoListaColumna.setAnterior(nuevaColumna);
+                        insertarResultado2(nuevaFila,nuevaColumna.getAbajo(),nuevaColumna);
+                    }
+                }else{
+                    if(nodoListaColumna.getSiguiente() == null){
+                        nodoListaColumna.setSiguiente(nuevaColumna);
+                        nuevaColumna.setAnterior(nodoListaColumna);
+                        insertarResultado2(nuevaFila,nodoListaColumna.getSiguiente().getAbajo(),nodoListaColumna.getSiguiente());
+                    }else{
+                        insertar(nuevaColumna, nuevaFila, nodoListaColumna.getSiguiente());
+                    }
+                }
+            }
+        }
+    }
+    
+    private void insertarResultado2(NodoFila nuevaFila, NodoFila nodoListaFila, NodoColumna columna){
+        if(nodoListaFila != null){
+            if(nuevaFila.getFila() == nodoListaFila.getFila()){
+                nodoListaFila.setValor(nodoListaFila.getValor()+nuevaFila.getValor());
+            }else{
+                if(nuevaFila.getFila()<nodoListaFila.getFila()){
+                    if(nodoListaFila == columna.getAbajo()){
+                        columna.getAbajo().setArriba(nuevaFila);
+                        columna.setAbajo(nuevaFila);
+                    }else{
+                        nodoListaFila.getArriba().setAbajo(nuevaFila);
+                        nuevaFila.setArriba(nodoListaFila.getArriba());
+                        nuevaFila.setAbajo(nodoListaFila);
+                        nodoListaFila.setArriba(nuevaFila);
+                    }
+                }else{
+                    if(nodoListaFila.getAbajo() == null){
+                        nodoListaFila.setAbajo(nuevaFila);
+                        nuevaFila.setArriba(nodoListaFila);
+                    }else{
+                        insertar2(nuevaFila,nodoListaFila.getAbajo(),columna);
+                    }
+                }
+            }
+        }else{
+            columna.setAbajo(nuevaFila);
+        }
+    }
+        
     public void mayores(){
         NodoColumna lista = this.cabeza;
         NodoFila lista2 = this.cabeza.getAbajo();
@@ -139,6 +200,7 @@ public class Lista {
             }    
         }
     }
+    
     public void mostrarListaColumna(NodoColumna nodoLista){
         if(nodoLista != null){
            listaColumna.add(nodoLista);
