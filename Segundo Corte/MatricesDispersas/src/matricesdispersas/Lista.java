@@ -125,7 +125,7 @@ public class Lista {
                         nuevaColumna.setSiguiente(cabeza);
                         this.cabeza.setAnterior(nuevaColumna);
                         this.cabeza = nuevaColumna;
-                        insertarResultado2(nuevaFila,nodoListaColumna.getSiguiente().getAbajo(),nodoListaColumna.getSiguiente());
+                        insertarResultado2(nuevaFila,nuevaColumna.getAbajo(),nuevaColumna);
                     }else{
                         nodoListaColumna.getAnterior().setSiguiente(nuevaColumna);
                         nuevaColumna.setAnterior(nodoListaColumna.getAnterior());
@@ -150,6 +150,10 @@ public class Lista {
         if(nodoListaFila != null){
             if(nuevaFila.getFila() == nodoListaFila.getFila()){
                 nodoListaFila.setValor(nodoListaFila.getValor()+nuevaFila.getValor());
+                if(nodoListaFila.getValor() == 0){
+                    nuevaFila.setAbajo(null);
+                    nuevaFila.setArriba(null);
+                }
             }else{
                 if(nuevaFila.getFila()<nodoListaFila.getFila()){
                     if(nodoListaFila == columna.getAbajo()){
@@ -187,18 +191,16 @@ public class Lista {
                     this.columnaMayor = lista.getSiguiente().getColumna();
                 }
             }
-            lista = lista.getSiguiente();
             if(lista != null){
                 lista2 = lista.getAbajo();
                 while(lista2 != null){
-                    if(lista2 != null){
-                        if(this.filaMayor < lista2.getFila()){
-                            this.filaMayor = lista2.getFila();
-                        }
+                    if(this.filaMayor < lista2.getFila()){
+                        this.filaMayor = lista2.getFila();
                     }
                     lista2 = lista2.getAbajo();
                 }
             }    
+            lista = lista.getSiguiente();
         }
     }
     
