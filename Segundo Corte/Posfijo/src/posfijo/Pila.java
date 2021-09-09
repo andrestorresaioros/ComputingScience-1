@@ -69,6 +69,8 @@ public class Pila {
                     if(!prioridad(posfijo.get(i-1),posfijo.get(i))){
                         break;
                     }  
+                }else{
+                    posfijo
                 }
             }
             if(!infijo[i].equals(")")){
