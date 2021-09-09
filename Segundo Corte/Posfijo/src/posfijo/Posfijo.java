@@ -109,10 +109,10 @@ public class Posfijo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularActionPerformed
-       
         String Infijo= Expresion.getText();
-        Posfijo.setText("Posfijo: "+pila);
-        Resultado.setText("Resultado: "+pila.Operadores(Infijo));
+        pila.Operadores(Infijo);
+        Posfijo.setText("Posfijo: "+pila.posfijo);
+        Resultado.setText("Resultado: "+pila.Operar(Infijo));
     }//GEN-LAST:event_CalcularActionPerformed
 
     /**
