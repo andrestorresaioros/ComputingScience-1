@@ -10,6 +10,7 @@ package posfijo;
  * @author cesar
  */
 public class Posfijo extends javax.swing.JFrame {
+    Pila pila;
 
     /**
      * Creates new form Posfijo1
@@ -108,9 +109,10 @@ public class Posfijo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularActionPerformed
-        String Resultados= Expresion.getText();
-        Posfijo.setText("Posfijo: ");
-        Resultado.setText("Resultado: "+Resultados);
+       
+        String Infijo= Expresion.getText();
+        Posfijo.setText("Posfijo: "+pila);
+        Resultado.setText("Resultado: "+pila.Operadores(Infijo));
     }//GEN-LAST:event_CalcularActionPerformed
 
     /**
