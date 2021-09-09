@@ -5,6 +5,9 @@
  */
 package posfijo;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 /**
@@ -14,8 +17,17 @@ import java.util.Stack;
 public class Pila {
     Stack pila =new Stack();
     String[] infijo;
-    String[] posfijo;
+    ArrayList<String> posfijo= new ArrayList<>();
     float resultado;
+    Map<String,Integer> jerarquia= new HashMap<>();
+    public Pila(){
+        jerarquia.put("(", 0);
+        jerarquia.put("+", 3);
+        jerarquia.put("-", 3);
+        jerarquia.put("*", 5);
+        jerarquia.put("/", 5);
+        jerarquia.put("^", 6);
+    }
 
     public Stack getPila() {
         return pila;
@@ -25,41 +37,51 @@ public class Pila {
         return infijo;
     }
 
-    public String[] getPosfijo() {
+    public ArrayList<String> getPosfijo() {
         return posfijo;
     }
-    
-    public void Operadores(String expresion){   
-        infijo=expresion.split(" ");
+
+    public float getResultado() {
+        return resultado;
+    }
+
+    public void Operadores(String expresion){ 
+        System.out.println(expresion);
+        infijo=expresion.split(""); 
+        /*for(String yisus:infijo){
+            System.out.println(yisus);
+        }*/
         for(int i=0;i<infijo.length;i++){
-            while(infijo[i]!=")"){
-                if(infijo[i]=="("){
+            while(!infijo[i].equals(")")){
+                if(infijo[i].equals("(")){
                     pila.push(infijo[i]);
                 }
-                if((infijo[i]=="+")||(infijo[i]=="-")||
-                   (infijo[i]=="*")||(infijo[i]=="/")||
-                   (infijo[i]=="^")){
-                    //posfijo.add(infijo[i]);
+                if((infijo[i].equals("+") )||(infijo[i].equals("-"))||
+                   (infijo[i].equals("*"))||(infijo[i].equals("/"))||
+                   (infijo[i].equals("^"))){
+                    posfijo.add(infijo[i]);
                     System.out.println("vamos bien");
                 }
-                if(prioridad()==1){
-                    infijo[i]=(String)pila.pop();
+                if(posfijo.size()!=0){
+                    if(prioridad(posfijo.get(i-1),posfijo.get(i))){
+                      infijo[i]=(String)pila.pop();
+                    }
+                    if(!prioridad(posfijo.get(i-1),posfijo.get(i))){
+                        break;
+                    }  
                 }
-                if(prioridad()==0){
-                    break;
-                }  
             }
-            if(infijo[i]!=")"){
+            if(!infijo[i].equals(")")){
                    pila.push(infijo[i]);
                 }
-            if(infijo[i]==")"){
+            if(infijo[i].equals(")")){
                     infijo[i]=(String)pila.pop();
                 }
             
         }
     }
-    public int prioridad(/*String op1,String op2*/){
-        return 0;
+    public boolean prioridad(String op1,String op2){
+        return jerarquia.get(op1)>jerarquia.get(op2);
     }
     public float Operar(String expresion){
         String var = expresion;

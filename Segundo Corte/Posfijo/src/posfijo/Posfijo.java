@@ -10,7 +10,7 @@ package posfijo;
  * @author cesar
  */
 public class Posfijo extends javax.swing.JFrame {
-    Pila pila;
+    Pila pila=new Pila();
 
     /**
      * Creates new form Posfijo1
