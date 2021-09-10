@@ -5,7 +5,6 @@
  */
 package matricesdispersas;
 
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -454,28 +453,42 @@ public class Matrices extends javax.swing.JFrame {
         
     }
     
+    public String mostrar(Lista l){
+        String result="";
+        
+        NodoColumna columna= l.getCabeza();
+        while(columna!=null){
+            NodoFila fila=columna.getAbajo();
+            result += columna.getColumna()+":  ";   
+            while(fila!=null){
+                if(fila.getAbajo() == null){
+                    result += fila.getFila()+","+fila.getValor()+"\n";
+                }else{
+                    result += fila.getFila()+","+fila.getValor()+" -> ";
+                }
+                fila=fila.getAbajo();
+            }
+            columna= columna.getSiguiente();
+        }
+        
+        return result;
+    }
+    
     private void MostrarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarAActionPerformed
         modelo= (DefaultTableModel)TablaA.getModel();
         int rows=modelo.getRowCount();
-        String result="";
         for(int i=rows-1;i>=0;i--){
             modelo.removeRow(i);
         }
         MatrizA.setText(null);
         NodoColumna columna= listaA.getCabeza();
         while(columna!=null){
-            NodoFila fila=columna.getAbajo();
-            result += columna.getColumna()+":  ";
+            NodoFila fila=columna.getAbajo();  
             while(fila!=null){
                 String[] lista= new String[3]; 
                 lista[0]=columna.getColumna()+"";
                 lista[1]=fila.getFila()+"";
                 lista[2]=fila.getValor()+"";
-                if(fila.getAbajo() == null){
-                    result += fila.getFila()+","+fila.getValor()+"\n";
-                }else{
-                    result += fila.getFila()+","+fila.getValor()+" -> ";
-                }
                 modelo.addRow(lista);
                 fila=fila.getAbajo();
             }
@@ -483,12 +496,11 @@ public class Matrices extends javax.swing.JFrame {
         }
         
         this.TablaA.setModel(modelo);
-        MatrizA.setText(result);
+        MatrizA.setText(mostrar(this.listaA));
     }//GEN-LAST:event_MostrarAActionPerformed
     
     private void MostrarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarBActionPerformed
         modelo = (DefaultTableModel)TablaB.getModel();
-        String result="";
         int rows = modelo.getRowCount();
         for(int i=rows-1;i>=0;i--){
             modelo.removeRow(i);
@@ -497,17 +509,11 @@ public class Matrices extends javax.swing.JFrame {
         NodoColumna columna = listaB.getCabeza();
         while(columna != null){
             NodoFila fila = columna.getAbajo();
-            result += columna.getColumna()+":  ";
             while(fila != null){
                 String[] lista = new String[3];
                 lista[0] = columna.getColumna()+"";
                 lista[1] = fila.getFila()+"";
                 lista[2] = fila.getValor()+"";
-                if(fila.getAbajo() == null){
-                    result += fila.getFila()+","+fila.getValor()+"\n";
-                }else{
-                    result += fila.getFila()+","+fila.getValor()+" -> ";
-                }
                 modelo.addRow(lista);
                 fila = fila.getAbajo();
             }
@@ -515,14 +521,13 @@ public class Matrices extends javax.swing.JFrame {
         }
         
         this.TablaB.setModel(modelo);     
-        MatrizB.setText(result);
+        MatrizB.setText(mostrar(this.listaB));
         
     }//GEN-LAST:event_MostrarBActionPerformed
 
     private void MostrarABActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarABActionPerformed
         modelo = (DefaultTableModel)TablaR.getModel();
         int rows = modelo.getRowCount();
-        String result="";
         for(int i=rows-1;i>=0;i--){
             modelo.removeRow(i);
         }
@@ -530,17 +535,11 @@ public class Matrices extends javax.swing.JFrame {
         NodoColumna columna = listaC.getCabeza();
         while(columna != null){
             NodoFila fila = columna.getAbajo();
-            result += columna.getColumna()+":  ";
             while(fila != null){
                 String[] lista = new String[3];
                 lista[0] = columna.getColumna()+"";
                 lista[1] = fila.getFila()+"";
                 lista[2] = fila.getValor()+"";
-                if(fila.getAbajo() == null){
-                    result += fila.getFila()+","+fila.getValor()+"\n";
-                }else{
-                    result += fila.getFila()+","+fila.getValor()+" -> ";
-                }
                 modelo.addRow(lista);
                 fila = fila.getAbajo();
             }
@@ -548,7 +547,7 @@ public class Matrices extends javax.swing.JFrame {
         }
         
         this.TablaR.setModel(modelo);
-        MatrizResultante.setText(result);
+        MatrizResultante.setText(mostrar(this.listaC));
         
     }//GEN-LAST:event_MostrarABActionPerformed
 
