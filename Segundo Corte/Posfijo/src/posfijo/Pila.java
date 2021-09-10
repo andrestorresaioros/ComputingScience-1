@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package posfijo;
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 import java.util.Stack;
 /**
  *
@@ -24,9 +20,15 @@ public class Pila {
             {1,1,1,1,1,0,1},
             {0,0,0,0,0,0,0}
     };
+
+    public Stack getPila() {
+        return pila;
+    }
+    
     public void Operadores(String expresion){ 
         //convierto de String a array
-        infijo=expresion.split(""); 
+        
+        infijo=expresion.split(" "); 
         int i=0;
         for(i=0;i<infijo.length;i++){
             /* convierto el infijo en la posicion i a string para verificar
@@ -111,20 +113,32 @@ public class Pila {
             }        
     }
     public String Resultado(){
+        String result = null;
+        String error= "Faltan datos en la expresión";
         pila.clear();
         for(int i=0;i<posfijo.size();i++){
             if(esOperando(posfijo.get(i))){
-                //aqui lo que hago es sacar las expresiones en forma de cola
+                // aqui lo que hago es sacar las expresiones en forma de cola
                 // osea que si la expresion esta asi 11+
                 // saco el operando, luego los dos 1 y los opero, asi con todo
                 pila.push(posfijo.get(i));
             }else{
-                double a=Double.parseDouble((String)pila.pop());
-                double b=Double.parseDouble((String)pila.pop());
-                pila.push(operar(a,b,posfijo.get(i)));
+                try{
+                    double a=Double.parseDouble((String)pila.pop());
+                    double b=Double.parseDouble((String)pila.pop());
+                    pila.push(operar(a,b,posfijo.get(i)));
+                    
+                }catch(EmptyStackException e){
+                    
+                    
             }
         }
-        String result=(String)pila.get(0);
+        if(pila.isEmpty()){
+            result=error;
+        }else{
+            result="Resultado: "+(String)pila.get(0);
+        }
+        }
         //limpio la pila y devuelvo el resultado
         pila.clear();
         return result;

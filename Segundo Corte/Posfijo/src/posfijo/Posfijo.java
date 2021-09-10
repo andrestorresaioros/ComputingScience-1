@@ -5,6 +5,8 @@
  */
 package posfijo;
 
+import javax.swing.JTextArea;
+
 /**
  *
  * @author cesar
@@ -38,7 +40,7 @@ public class Posfijo extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        jLabel1.setText("Digite expresión sin espacios  + -  *  / ^ ( )");
+        jLabel1.setText("Digite expresión con espacios  + -  *  / ^ ( )");
 
         Calcular.setText("Calcular");
         Calcular.addActionListener(new java.awt.event.ActionListener() {
@@ -113,9 +115,8 @@ public class Posfijo extends javax.swing.JFrame {
         String Infijo= Expresion.getText();
         pila.Operadores(Infijo);
         Posfijo.setText("Posfijo: "+pila.posfijo);
-        Resultado.setText("Resultado: "+pila.Resultado());
+        Resultado.setText(pila.Resultado());
     }//GEN-LAST:event_CalcularActionPerformed
-
     /**
      * @param args the command line arguments
      */
