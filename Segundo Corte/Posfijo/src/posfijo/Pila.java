@@ -26,8 +26,7 @@ public class Pila {
     }
     
     public void Operadores(String expresion){ 
-        //convierto de String a array
-        
+        // convierto de String a array
         infijo=expresion.split(" "); 
         int i=0;
         for(i=0;i<infijo.length;i++){
@@ -54,14 +53,14 @@ public class Pila {
                 }
             }
         }
-        //literal esto lo copie del paso a paso que tiene Becerra en 
-        //porcomputador
+        // literal esto lo copie del paso a paso que tiene Becerra en 
+        // porcomputador
         while(!pila.isEmpty()){
             String elemento=(String)pila.pop();
             posfijo.add(elemento);
         }
     }
-    //aca verifica si es un numero, si no lo es, entonces es un operando
+    // aca verifica si es un numero, si no lo es, entonces es un operando
     public boolean esOperando(String elemento){
         try{
             Integer.parseInt(elemento);
@@ -95,8 +94,8 @@ public class Pila {
             default : return -1;
         }   
     }
-    //recibe de parametros la fila y la columna de la matriz jerarquia
-    //devuelve 0 o 1
+    // recibe de parametros la fila y la columna de la matriz jerarquia
+    // devuelve 0 o 1
     public int prioridad(String op1,String op2){
         return jerarquia[rowPosition(op1)][colPosition(op2)];
     }
@@ -105,8 +104,8 @@ public class Pila {
             case "+": return String.valueOf(a+b);
             case "-": return String.valueOf(a-b);
             case "*": return String.valueOf(a*b);
-            //coloco un operador ternario por si al marica de becerra le da 
-            //por dividir entre 0 hp ese, lo odio 
+            // coloco un operador ternario por si al marica de becerra le da 
+            // por dividir entre 0 hp ese, lo odio 
             case "/": return String.valueOf((b==0)?0:a/b);
             case "^": return String.valueOf(Math.pow(b, a));
             default : return "0";
@@ -128,9 +127,7 @@ public class Pila {
                     double b=Double.parseDouble((String)pila.pop());
                     pila.push(operar(a,b,posfijo.get(i)));
                     
-                }catch(EmptyStackException e){
-                    
-                    
+                }catch(EmptyStackException e){ 
             }
         }
         if(pila.isEmpty()){
@@ -139,7 +136,7 @@ public class Pila {
             result="Resultado: "+(String)pila.get(0);
         }
         }
-        //limpio la pila y devuelvo el resultado
+        // limpio la pila y devuelvo el resultado
         pila.clear();
         return result;
     }
