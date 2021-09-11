@@ -459,7 +459,7 @@ public class Matrices extends javax.swing.JFrame {
         NodoColumna columna= l.getCabeza();
         while(columna!=null){
             NodoFila fila=columna.getAbajo();
-            result += columna.getColumna()+":  ";   
+            result += columna.getColumna()+"->  ";   
             while(fila!=null){
                 if(fila.getAbajo() == null){
                     result += fila.getFila()+","+fila.getValor()+"\n";
