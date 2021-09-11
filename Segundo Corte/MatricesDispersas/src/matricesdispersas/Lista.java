@@ -151,9 +151,18 @@ public class Lista {
             if(nuevaFila.getFila() == nodoListaFila.getFila()){
                 nodoListaFila.setValor(nodoListaFila.getValor()+nuevaFila.getValor());
                 if(nodoListaFila.getValor() == 0){
-                    nuevaFila.setAbajo(null);
-                    nuevaFila.setArriba(null);
-                }
+                    if(nodoListaFila == columna.getAbajo()){
+                        if(columna.getAbajo().getAbajo() != null){
+                            columna.setAbajo(columna.getAbajo().getAbajo());
+                            columna.getAbajo().setAbajo(null);
+                        }else{
+                            columna.setAbajo(null);
+                        }
+                    }else{
+                        nuevaFila.setAbajo(null);
+                        nuevaFila.setArriba(null);
+                    }
+                }    
             }else{
                 if(nuevaFila.getFila()<nodoListaFila.getFila()){
                     if(nodoListaFila == columna.getAbajo()){
