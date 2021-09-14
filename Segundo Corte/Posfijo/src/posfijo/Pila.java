@@ -101,9 +101,9 @@ public class Pila {
     }
     public String operar(double a,double b,String operador){
         switch(operador){
-            case "+": return String.valueOf(a+b);
-            case "-": return String.valueOf(a-b);
-            case "*": return String.valueOf(a*b);
+            case "+": return String.valueOf(b+a);
+            case "-": return String.valueOf(b-a);
+            case "*": return String.valueOf(b*a);
             // coloco un operador ternario por si al marica de becerra le da 
             // por dividir entre 0 hp ese, lo odio 
             case "/":
@@ -111,7 +111,7 @@ public class Pila {
                     String divisionE="Error. división por 0";
                     return divisionE;
                 }else{
-                    return String.valueOf((b==0)?0:a/b);
+                    return String.valueOf((b==0)?0:b/a);
                 }
                 
             case "^": return String.valueOf(Math.pow(b, a));
@@ -132,7 +132,14 @@ public class Pila {
                 try{
                     double a=Double.parseDouble((String)pila.pop());
                     double b=Double.parseDouble((String)pila.pop());
+                    System.out.println(a);
+                    System.out.println(b);
+                    System.out.println(posfijo.get(i));
+                    System.out.println("resultado");
+                    System.out.println(operar(a,b,posfijo.get(i)));
+                    System.out.println("");
                     pila.push(operar(a,b,posfijo.get(i)));
+                    
                     
                 }catch(EmptyStackException e){ 
             }
