@@ -106,7 +106,14 @@ public class Pila {
             case "*": return String.valueOf(a*b);
             // coloco un operador ternario por si al marica de becerra le da 
             // por dividir entre 0 hp ese, lo odio 
-            case "/": return String.valueOf((b==0)?0:a/b);
+            case "/":
+                if(a==0){
+                    String divisionE="Error. división por 0";
+                    return divisionE;
+                }else{
+                    return String.valueOf((b==0)?0:a/b);
+                }
+                
             case "^": return String.valueOf(Math.pow(b, a));
             default : return "0";
             }        
