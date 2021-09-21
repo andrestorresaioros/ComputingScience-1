@@ -70,9 +70,4 @@ public class Nodo {
         this.pos = null;
     }
     
-    public static void main(String[] args) {
-        Arbol a = new Arbol();
-        a.reconstruirPosOrden("1 4 7 8 9 11 12 16 19 21 25","2 4 8 11 9 7 19 16 25 21 12");
-    }
-    
 }
