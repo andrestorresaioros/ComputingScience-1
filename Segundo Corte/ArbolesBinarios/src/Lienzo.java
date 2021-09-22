@@ -35,7 +35,7 @@ public class Lienzo extends JPanel {
         else {
             int EXTRA = n.nodosCompletos(n) * (ANCHO / 2);
             g.drawOval(x, y, DIAMETRO, DIAMETRO);
-            g.drawString(n.getElemento(), x + 12, y + 18);
+            g.drawString(n.getLetra(), x + 12, y + 18);
             if (n.getIzquierda() != null)
                 g.drawLine(x+RADIO, y+RADIO+15, x-ANCHO-EXTRA+RADIO+15, y+ANCHO+RADIO);
             if (n.getDerecha() != null)
