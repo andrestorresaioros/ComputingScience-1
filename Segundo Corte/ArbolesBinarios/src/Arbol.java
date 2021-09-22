@@ -38,7 +38,12 @@ public class Arbol {
                 }
             }
             if(!rep){    //VALIDAR QUE NO SE REPITAN LETRAS
-    
+                
+                if(inRaiz[0].equals(preRaiz[preRaiz.length-1]) && inRaiz[inRaiz.length-1].equals(preRaiz[0])){
+                    JOptionPane.showMessageDialog(null,"Los arboles no coinciden");
+                }else{
+                
+                
                 //ARREGLOS INORDEN POSORDEN
                 String[] inIz, preIz, inDe, preDe;
                     
@@ -107,7 +112,7 @@ public class Arbol {
                 }
                 
                 this.raiz = nuevo;
-                
+                }
             }else{
                 JOptionPane.showMessageDialog(null, "No se pueden repetir letras");
             }
@@ -199,6 +204,11 @@ public class Arbol {
             }
             if(!rep){    //VALIDAR QUE NO SE REPITAN LETRAS
     
+                if(inRaiz[0].equals(posRaiz[posRaiz.length-1]) && inRaiz[inRaiz.length-1].equals(posRaiz[0])){
+                    JOptionPane.showMessageDialog(null,"Los arboles no coinciden");
+                }else{
+                
+                
                 //ARREGLOS INORDEN POSORDEN
                 String[] inIz, posIz, inDe, posDe;
                     
@@ -267,7 +277,7 @@ public class Arbol {
                 this.raiz = nuevo;
                 
                 System.out.println("");
-                
+                }
             }else{
                 JOptionPane.showMessageDialog(null, "No se pueden repetir letras");
             }
