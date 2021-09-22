@@ -6,6 +6,7 @@ public class Nodo {
     private String[] pos;
     private Nodo raiz;
     private String letra;
+    private String elemento;
     
     
     //GETTERS Y SETTERS
@@ -60,14 +61,38 @@ public class Nodo {
     
     
     //CONSTRUCTOR
-    
-    public Nodo(String letra){
+    //yuneider, modifique tu constructor, lo deje como elemento y no como letra
+    public Nodo(String elemento){
         this.izquierda = null;
         this.derecha = null;
         this.letra = letra;
         this.raiz = null;
         this.in = null;
         this.pos = null;
+        this.elemento = elemento;
+    }
+    public Nodo insertar(Nodo n, String elemento) {
+        if (n == null)
+            return new Nodo(elemento);
+        else if (elemento.hashCode() < n.elemento.hashCode())
+            n.izquierda = insertar(n.izquierda, elemento);
+        else if (elemento.hashCode() > n.elemento.hashCode())
+            n.derecha = insertar(n.derecha, elemento);
+        return n;
+    }
+    
+    public int nodosCompletos(Nodo n) {
+        if (n == null)
+            return 0;
+        else {
+            if (n.izquierda != null && n.derecha != null)
+                return nodosCompletos(n.izquierda) + nodosCompletos(n.derecha) + 1;
+            return nodosCompletos(n.izquierda) + nodosCompletos(n.derecha);
+        }
+    }
+
+    public String getElemento() {
+        return elemento;
     }
     
 }
