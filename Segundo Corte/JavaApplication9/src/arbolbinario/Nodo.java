@@ -108,7 +108,7 @@ public class Nodo {
         if (izq != null) {
             in = in + ", "+izq.inorden();
         }
-        in = in + String.valueOf(cod) + ": "+String.valueOf(nombre);
+        in = in + String.valueOf(cod);
         if (der != null) {
             in = in + ", "+der.inorden();
         }
@@ -117,7 +117,7 @@ public class Nodo {
  
     public String preorden() {
         String pre = "";
-        pre =  pre + String.valueOf(cod) + ": "+String.valueOf(nombre);
+        pre =  pre + String.valueOf(cod);
         if (izq != null) {
             pre = pre +", "+ izq.preorden();
         }
@@ -136,7 +136,7 @@ public class Nodo {
         if (der != null) {
             pos = pos +der.posorden() + ", ";
         }
-        pos +=  String.valueOf(cod) + ": "+String.valueOf(nombre);
+        pos +=  String.valueOf(cod);
 
         return pos;
     }
