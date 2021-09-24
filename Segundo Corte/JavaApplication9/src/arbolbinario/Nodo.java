@@ -95,7 +95,7 @@ public class Nodo {
             return izq.vacuna2(cod, fecha);
         }else if (cod > this.cod){
             return der.vacuna2(cod, fecha);
-        }else if(cod == this.cod && this.v2 == false && daysBetween(cal1.getTime(),cal2.getTime()) >= 45){
+        }else if(cod == this.cod && this.v2 == false && daysBetween(cal1.getTime(),cal2.getTime()) >= 30){
             v2 = true;
             fecha2 = fecha;
             return true;
@@ -157,18 +157,18 @@ public class Nodo {
         }
     }
  
-    public Nodo borrar(int cod) {
+    public Nodo eliminar(int cod) {
         Nodo response = this;
         if (cod < this.cod) {  
-            this.izq = this.izq.borrar(cod);
+            this.izq = this.izq.eliminar(cod);
         } else if (cod > this.cod) {
-            this.der = this.der.borrar(cod);
+            this.der = this.der.eliminar(cod);
         } else {
             if (this.izq != null && this.der != null) {
                 Nodo temp = this;
                 Nodo mayIzq = this.izq.anterior();
                 this.cod= mayIzq.getCod();
-                temp.izq = temp.izq.borrar(mayIzq.getCod());
+                temp.izq = temp.izq.eliminar(mayIzq.getCod());
             } else if (this.izq != null) {
                 response = this.izq;
             } else if (this.der != null) {
@@ -183,16 +183,16 @@ public class Nodo {
     public String infoPaciente(int cod) {
         String tex = "";
             if(buscarIz(cod, null) || buscarDe(cod, null)) {
-                tex = tex + "Codigo de Paciente: " +temp.getCod() + "\n Nombre: " + temp.getNombre();
+                tex = tex + "Codigo: " +temp.getCod() + "\n Nombre: " + temp.getNombre();
 			System.out.println(temp.getCod() + " " + temp.getNombre());
 			if(temp.getV1()) {
-				System.out.println("Primera dosis: " + temp.getFecha1());
-                                tex = tex + " \n Fecha de primera dosis: " + temp.getFecha1();
+				
+                                tex = tex + " \n Primera dosis: " + temp.getFecha1();
 				if(temp.getV2()){
-					System.out.println("Segunda dosis: " + temp.getFecha2());
-                                        tex = tex + " \n Fecha de segunda dosis: " + temp.getFecha2();
+					
+                                        tex = tex + " \n Segunda dosis: " + temp.getFecha2();
                                 }else{
-                                    tex = tex + "\n El paciente no registra segunda dosis";
+                                    tex = tex + "\n El paciente no tiene segunda dosis";
                                 }
 			}else{
                             tex = tex + "\n El paciente no ha sido vacunado";

@@ -88,17 +88,17 @@ public class Ventana {
 		frame.getContentPane().add(lblNombre);
 		
 		txtCodigo = new JTextField();
-		txtCodigo.setBounds(89, 22, 133, 20);
+		txtCodigo.setBounds(89, 22, 400, 20);
 		frame.getContentPane().add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(89, 50, 133, 20);
+		txtNombre.setBounds(89, 50, 400, 20);
 		frame.getContentPane().add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtFecha = new JTextField();
-		txtFecha.setBounds(89, 129, 133, 20);
+		txtFecha.setBounds(89, 129, 400, 20);
 		frame.getContentPane().add(txtFecha);
 		txtFecha.setColumns(10);
 		
@@ -115,17 +115,17 @@ public class Ventana {
 		frame.getContentPane().add(lblPosorden);
 		
 		txtPreorden = new JTextField();
-		txtPreorden.setBounds(89, 182, 283, 20);
+		txtPreorden.setBounds(95, 182, 400, 20);
 		frame.getContentPane().add(txtPreorden);
 		txtPreorden.setColumns(10);
 		
 		txtInorden = new JTextField();
-		txtInorden.setBounds(89, 212, 283, 20);
+		txtInorden.setBounds(95, 212, 400, 20);
 		frame.getContentPane().add(txtInorden);
 		txtInorden.setColumns(10);
 		
 		txtPosorden = new JTextField();
-		txtPosorden.setBounds(89, 242, 283, 20);
+		txtPosorden.setBounds(95, 242, 400, 20);
 		frame.getContentPane().add(txtPosorden);
 		txtPosorden.setColumns(10);
 		
@@ -138,7 +138,7 @@ public class Ventana {
 		frame.getContentPane().add(lblFecha);
 		
 		txtCod = new JTextField();
-		txtCod.setBounds(89, 104, 133, 20);
+		txtCod.setBounds(89, 104, 400, 20);
 		frame.getContentPane().add(txtCod);
 		txtCod.setColumns(10);
 		
@@ -161,9 +161,9 @@ public class Ventana {
 		                txtInorden.setText(arbol.inorden());
 		                txtPosorden.setText(arbol.posorden());
 		            } else if (x == 19) {
-		                JOptionPane.showMessageDialog(null, "Has superado la cantidad de números.");
+		                JOptionPane.showMessageDialog(null, "Cantidad máxima de números alcanzada");
 		            } else {
-		                JOptionPane.showMessageDialog(null, "Intentas ingresar un código repetido.");
+		                JOptionPane.showMessageDialog(null, "El código está repetido");
 		            }
 
 		        } catch (NullPointerException e) {
@@ -182,7 +182,7 @@ public class Ventana {
 		              
 		                pos = valores.indexOf(Integer.parseInt(txtCodigo.getText()));
 		                valores.remove(pos);
-		                arbol.borrar(Integer.parseInt(txtCodigo.getText()));
+		                arbol.eliminar(Integer.parseInt(txtCodigo.getText()));
 		                x--;
 		                txtCodigo.setText("");
                                 txtNombre.setText("");
@@ -190,7 +190,7 @@ public class Ventana {
 		                txtInorden.setText(arbol.inorden());
 		                txtPosorden.setText(arbol.posorden());
 		            }else{
-		                JOptionPane.showMessageDialog(null, "Intentas eliminar un valor no registrado.");
+		                JOptionPane.showMessageDialog(null, "El valor no se encuentra en el arbol");
 		            }
 		        } catch (NullPointerException e) {
 
@@ -208,7 +208,7 @@ public class Ventana {
                                 
 				try {
                                     if(txtFecha.getText().equals("")){
-                                        JOptionPane.showMessageDialog(null, "Dado que el campo de fecha esta vacio, se agregara la fecha de hoy");
+                                        JOptionPane.showMessageDialog(null, "Se agregará la fecha de hoy");
                                         Calendar fechActual = new GregorianCalendar();
                                         int año = fechActual.get(Calendar.YEAR);
                                         int mes = fechActual.get(Calendar.MONTH);
@@ -220,14 +220,14 @@ public class Ventana {
                                         fech = formato.parse(txtFecha.getText());
                                     }
 					if(arbol.vacuna1(Integer.parseInt(txtCod.getText()), fech)){
-                                            JOptionPane.showMessageDialog(null, "La fecha ha sido registrada");
+                                            JOptionPane.showMessageDialog(null, "Fecha registrada");
                                             txtFecha.setText("");
                                         }else{
                                             if(arbol.vacuna2(Integer.parseInt(txtCod.getText()), fech)){
-                                                JOptionPane.showMessageDialog(null, "La fecha ha sido registrada");
+                                                JOptionPane.showMessageDialog(null, "Fecha registrada");
                                                 txtFecha.setText("");
                                             }else{
-                                                JOptionPane.showMessageDialog(null, "La fecha no pudo ser gegistrada");
+                                                JOptionPane.showMessageDialog(null, "Fecha no gegistrada");
                                             }
                                         }
 				} catch (ParseException e) {
@@ -243,10 +243,9 @@ public class Ventana {
 		btnDibujar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent dibujar) {
                             
-                            Lienzo objLienzo = new Lienzo(); //VISTA
+                            Lienzo objLienzo = new Lienzo();
                             Controlador objControlador = new Controlador(objLienzo, arbol);
                             objControlador.iniciar();
-                            //
                             JFrame ventana = new JFrame();
                             ventana.getContentPane().add(objLienzo);
                             ventana.setSize(600, 600);
