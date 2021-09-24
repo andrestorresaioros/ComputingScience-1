@@ -157,18 +157,18 @@ public class Nodo {
         }
     }
  
-    public Nodo eliminar(int cod) {
+    public Nodo borrar(int cod) {
         Nodo response = this;
         if (cod < this.cod) {  
-            this.izq = this.izq.eliminar(cod);
+            this.izq = this.izq.borrar(cod);
         } else if (cod > this.cod) {
-            this.der = this.der.eliminar(cod);
+            this.der = this.der.borrar(cod);
         } else {
             if (this.izq != null && this.der != null) {
                 Nodo temp = this;
                 Nodo mayIzq = this.izq.anterior();
                 this.cod= mayIzq.getCod();
-                temp.izq = temp.izq.eliminar(mayIzq.getCod());
+                temp.izq = temp.izq.borrar(mayIzq.getCod());
             } else if (this.izq != null) {
                 response = this.izq;
             } else if (this.der != null) {
