@@ -182,7 +182,7 @@ public class Ventana {
 		              
 		                pos = valores.indexOf(Integer.parseInt(txtCodigo.getText()));
 		                valores.remove(pos);
-		                arbol.eliminar(Integer.parseInt(txtCodigo.getText()));
+		                arbol.borrar(Integer.parseInt(txtCodigo.getText()));
 		                x--;
 		                txtCodigo.setText("");
                                 txtNombre.setText("");
