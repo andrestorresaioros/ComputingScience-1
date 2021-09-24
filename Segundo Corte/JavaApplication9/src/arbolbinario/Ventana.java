@@ -75,7 +75,7 @@ public class Ventana {
             LocalDateTime fechHoy = LocalDateTime.now();
             
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 371);
+		frame.setBounds(100, 100, 550, 571);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -142,7 +142,7 @@ public class Ventana {
 		frame.getContentPane().add(txtCod);
 		txtCod.setColumns(10);
 		
-		JButton btnAgregar = new JButton("Agregar");
+		JButton btnAgregar = new JButton("Agregar Paciente");
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent agregar) {
 				try {
@@ -171,10 +171,10 @@ public class Ventana {
 		        }
 			}
 		});
-		btnAgregar.setBounds(267, 10, 133, 23);
+		btnAgregar.setBounds(20, 400, 240, 23);
 		frame.getContentPane().add(btnAgregar);
 		
-		JButton btnEliminar = new JButton("Eliminar");
+		JButton btnEliminar = new JButton("Eliminar Paciente");
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent eliminar) {
 				try {
@@ -197,10 +197,10 @@ public class Ventana {
 		        }
 			}
 		});
-		btnEliminar.setBounds(267, 40, 133, 23);
+		btnEliminar.setBounds(20, 450, 240, 23);
 		frame.getContentPane().add(btnEliminar);
 		
-		JButton btnFecha = new JButton("Agregar Fecha");
+		JButton btnFecha = new JButton("Agregar Fecha de vacunacion");
 		btnFecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent fecha) {
 				SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
@@ -236,10 +236,10 @@ public class Ventana {
 				
 			}
 		});
-		btnFecha.setBounds(267, 122, 133, 23);
+		btnFecha.setBounds(280, 400, 245, 23);
 		frame.getContentPane().add(btnFecha);
 		
-		JButton btnDibujar = new JButton("Dibujar Arbol");
+		JButton btnDibujar = new JButton("Dibujar Arbol de pacientes");
 		btnDibujar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent dibujar) {
                             
@@ -253,10 +253,10 @@ public class Ventana {
                             ventana.setVisible(true);
 			}
 		});
-		btnDibujar.setBounds(133, 285, 150, 23);
+		btnDibujar.setBounds(100, 285, 350, 80);
 		frame.getContentPane().add(btnDibujar);
                 
-                JButton btnInformacion = new JButton("Informacion");
+                JButton btnInformacion = new JButton("Informacion de los pacientes");
 		btnInformacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent info) {
                             
@@ -268,7 +268,7 @@ public class Ventana {
                             ven.setVisible(true);
 			}
 		});
-		btnInformacion.setBounds(267, 70, 133, 23);
+		btnInformacion.setBounds(280, 450, 240, 23);
 		frame.getContentPane().add(btnInformacion);
 	}
 }

@@ -349,11 +349,6 @@ public class Arbol {
         }
         
     }
-    public void insertar(String elemento) {
-        if (raiz == null)
-            raiz = new Nodo(elemento);
-        else
-            raiz = raiz.insertar(raiz, elemento);
-    }
+    
     
 }
