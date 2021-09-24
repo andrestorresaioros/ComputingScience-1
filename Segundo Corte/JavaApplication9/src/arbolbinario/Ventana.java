@@ -161,9 +161,9 @@ public class Ventana {
 		                txtInorden.setText(arbol.inorden());
 		                txtPosorden.setText(arbol.posorden());
 		            } else if (x == 19) {
-		                JOptionPane.showMessageDialog(null, "Has superado la cantidad de números.");
+		                JOptionPane.showMessageDialog(null, "Cantidad máxima de números alcanzada");
 		            } else {
-		                JOptionPane.showMessageDialog(null, "Intentas ingresar un código repetido.");
+		                JOptionPane.showMessageDialog(null, "El código está repetido");
 		            }
 
 		        } catch (NullPointerException e) {
@@ -182,7 +182,7 @@ public class Ventana {
 		              
 		                pos = valores.indexOf(Integer.parseInt(txtCodigo.getText()));
 		                valores.remove(pos);
-		                arbol.borrar(Integer.parseInt(txtCodigo.getText()));
+		                arbol.eliminar(Integer.parseInt(txtCodigo.getText()));
 		                x--;
 		                txtCodigo.setText("");
                                 txtNombre.setText("");
@@ -190,7 +190,7 @@ public class Ventana {
 		                txtInorden.setText(arbol.inorden());
 		                txtPosorden.setText(arbol.posorden());
 		            }else{
-		                JOptionPane.showMessageDialog(null, "Intentas eliminar un valor no registrado.");
+		                JOptionPane.showMessageDialog(null, "El valor no se encuentra en el arbol");
 		            }
 		        } catch (NullPointerException e) {
 
@@ -208,7 +208,7 @@ public class Ventana {
                                 
 				try {
                                     if(txtFecha.getText().equals("")){
-                                        JOptionPane.showMessageDialog(null, "Dado que el campo de fecha esta vacio, se agregara la fecha de hoy");
+                                        JOptionPane.showMessageDialog(null, "Se agregará la fecha de hoy");
                                         Calendar fechActual = new GregorianCalendar();
                                         int año = fechActual.get(Calendar.YEAR);
                                         int mes = fechActual.get(Calendar.MONTH);
@@ -220,14 +220,14 @@ public class Ventana {
                                         fech = formato.parse(txtFecha.getText());
                                     }
 					if(arbol.vacuna1(Integer.parseInt(txtCod.getText()), fech)){
-                                            JOptionPane.showMessageDialog(null, "La fecha ha sido registrada");
+                                            JOptionPane.showMessageDialog(null, "Fecha registrada");
                                             txtFecha.setText("");
                                         }else{
                                             if(arbol.vacuna2(Integer.parseInt(txtCod.getText()), fech)){
-                                                JOptionPane.showMessageDialog(null, "La fecha ha sido registrada");
+                                                JOptionPane.showMessageDialog(null, "Fecha registrada");
                                                 txtFecha.setText("");
                                             }else{
-                                                JOptionPane.showMessageDialog(null, "La fecha no pudo ser gegistrada");
+                                                JOptionPane.showMessageDialog(null, "Fecha no gegistrada");
                                             }
                                         }
 				} catch (ParseException e) {
@@ -243,10 +243,9 @@ public class Ventana {
 		btnDibujar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent dibujar) {
                             
-                            Lienzo objLienzo = new Lienzo(); //VISTA
+                            Lienzo objLienzo = new Lienzo();
                             Controlador objControlador = new Controlador(objLienzo, arbol);
                             objControlador.iniciar();
-                            //
                             JFrame ventana = new JFrame();
                             ventana.getContentPane().add(objLienzo);
                             ventana.setSize(600, 600);
