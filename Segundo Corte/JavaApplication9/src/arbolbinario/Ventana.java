@@ -267,6 +267,7 @@ public class Ventana {
                             ven.setVisible(true);
 			}
 		});
+                //
 		btnInformacion.setBounds(280, 450, 240, 23);
 		frame.getContentPane().add(btnInformacion);
 	}
