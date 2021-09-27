@@ -7,7 +7,7 @@ package arbolbinario;
 
 /**
  *
- * @author lizet
+ * @author Andrés :)
  */
 import java.awt.EventQueue;
 import java.awt.Graphics;

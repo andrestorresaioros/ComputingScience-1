@@ -7,7 +7,7 @@ package arbolbinario;
 
 /**
  *
- * @author lizet
+ * @author 
  */
 public class Controlador {
     private Lienzo objLienzo; //VISTA

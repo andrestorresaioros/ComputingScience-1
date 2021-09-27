@@ -11,7 +11,7 @@ import java.util.GregorianCalendar;
 
 /**
  *
- * @author lizet
+ * @author
  */
 public class Nodo {
     
