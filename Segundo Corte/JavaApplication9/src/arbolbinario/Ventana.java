@@ -75,7 +75,7 @@ public class Ventana {
             LocalDateTime fechHoy = LocalDateTime.now();
             
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 371);
+		frame.setBounds(100, 100, 550, 571);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -88,17 +88,17 @@ public class Ventana {
 		frame.getContentPane().add(lblNombre);
 		
 		txtCodigo = new JTextField();
-		txtCodigo.setBounds(89, 22, 133, 20);
+		txtCodigo.setBounds(89, 22, 400, 20);
 		frame.getContentPane().add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(89, 50, 133, 20);
+		txtNombre.setBounds(89, 50, 400, 20);
 		frame.getContentPane().add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtFecha = new JTextField();
-		txtFecha.setBounds(89, 129, 133, 20);
+		txtFecha.setBounds(89, 129, 400, 20);
 		frame.getContentPane().add(txtFecha);
 		txtFecha.setColumns(10);
 		
@@ -115,17 +115,17 @@ public class Ventana {
 		frame.getContentPane().add(lblPosorden);
 		
 		txtPreorden = new JTextField();
-		txtPreorden.setBounds(89, 182, 283, 20);
+		txtPreorden.setBounds(95, 182, 400, 20);
 		frame.getContentPane().add(txtPreorden);
 		txtPreorden.setColumns(10);
 		
 		txtInorden = new JTextField();
-		txtInorden.setBounds(89, 212, 283, 20);
+		txtInorden.setBounds(95, 212, 400, 20);
 		frame.getContentPane().add(txtInorden);
 		txtInorden.setColumns(10);
 		
 		txtPosorden = new JTextField();
-		txtPosorden.setBounds(89, 242, 283, 20);
+		txtPosorden.setBounds(95, 242, 400, 20);
 		frame.getContentPane().add(txtPosorden);
 		txtPosorden.setColumns(10);
 		
@@ -138,11 +138,11 @@ public class Ventana {
 		frame.getContentPane().add(lblFecha);
 		
 		txtCod = new JTextField();
-		txtCod.setBounds(89, 104, 133, 20);
+		txtCod.setBounds(89, 104, 400, 20);
 		frame.getContentPane().add(txtCod);
 		txtCod.setColumns(10);
 		
-		JButton btnAgregar = new JButton("Agregar");
+		JButton btnAgregar = new JButton("Agregar Paciente");
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent agregar) {
 				try {
@@ -171,36 +171,48 @@ public class Ventana {
 		        }
 			}
 		});
-		btnAgregar.setBounds(267, 10, 133, 23);
+		btnAgregar.setBounds(20, 400, 240, 23);
 		frame.getContentPane().add(btnAgregar);
 		
-		JButton btnEliminar = new JButton("Eliminar");
+		JButton btnEliminar = new JButton("Eliminar Paciente");
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent eliminar) {
 				try {
-		            if (valores.contains(Integer.parseInt(txtCodigo.getText()))) {
-		              
-		                pos = valores.indexOf(Integer.parseInt(txtCodigo.getText()));
-		                valores.remove(pos);
-		                arbol.borrar(Integer.parseInt(txtCodigo.getText()));
-		                x--;
-		                txtCodigo.setText("");
-                                txtNombre.setText("");
-		                txtPreorden.setText(arbol.preorden());
-		                txtInorden.setText(arbol.inorden());
-		                txtPosorden.setText(arbol.posorden());
-		            }else{
-		                JOptionPane.showMessageDialog(null, "El valor no se encuentra en el arbol");
-		            }
-		        } catch (NullPointerException e) {
+                                    if (valores.contains(Integer.parseInt(txtCodigo.getText()))) {
 
-		        }
+                                        pos = valores.indexOf(Integer.parseInt(txtCodigo.getText()));
+                                        valores.remove(pos);
+                                        arbol = arbol.borrar(Integer.parseInt(txtCodigo.getText()));
+                                        x--;
+                                        txtCodigo.setText("");
+                                        txtNombre.setText("");
+                                        try{
+                                            txtPreorden.setText(arbol.preorden());
+                                        }catch(NullPointerException e){
+                                            txtPreorden.setText("");
+                                        }
+                                        try{
+                                            txtInorden.setText(arbol.inorden());
+                                        }catch(NullPointerException e){
+                                            txtInorden.setText("");
+                                        }
+                                        try{
+                                            txtPosorden.setText(arbol.posorden());
+                                        }catch(NullPointerException e){
+                                            txtPosorden.setText("");
+                                        }
+                                    }else{
+                                        JOptionPane.showMessageDialog(null, "El valor no se encuentra en el arbol");
+                                    }
+                                } catch (NullPointerException e) {
+                                    
+                                }
 			}
 		});
-		btnEliminar.setBounds(267, 40, 133, 23);
+		btnEliminar.setBounds(20, 450, 240, 23);
 		frame.getContentPane().add(btnEliminar);
 		
-		JButton btnFecha = new JButton("Agregar Fecha");
+		JButton btnFecha = new JButton("Agregar Fecha de vacunacion");
 		btnFecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent fecha) {
 				SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
@@ -236,10 +248,10 @@ public class Ventana {
 				
 			}
 		});
-		btnFecha.setBounds(267, 122, 133, 23);
+		btnFecha.setBounds(280, 400, 245, 23);
 		frame.getContentPane().add(btnFecha);
 		
-		JButton btnDibujar = new JButton("Dibujar Arbol");
+		JButton btnDibujar = new JButton("Dibujar Arbol de pacientes");
 		btnDibujar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent dibujar) {
                             
@@ -252,10 +264,10 @@ public class Ventana {
                             ventana.setVisible(true);
 			}
 		});
-		btnDibujar.setBounds(133, 285, 150, 23);
+		btnDibujar.setBounds(100, 285, 350, 80);
 		frame.getContentPane().add(btnDibujar);
                 
-                JButton btnInformacion = new JButton("Informacion");
+                JButton btnInformacion = new JButton("Informacion de los pacientes");
 		btnInformacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent info) {
                             
@@ -267,7 +279,8 @@ public class Ventana {
                             ven.setVisible(true);
 			}
 		});
-		btnInformacion.setBounds(267, 70, 133, 23);
+                //
+		btnInformacion.setBounds(280, 450, 240, 23);
 		frame.getContentPane().add(btnInformacion);
 	}
 }

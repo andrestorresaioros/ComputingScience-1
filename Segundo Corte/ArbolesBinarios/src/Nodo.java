@@ -68,15 +68,7 @@ public class Nodo {
         this.in = null;
         this.pos = null;
     }
-    public Nodo insertar(Nodo n, String letra) {
-        if (n == null)
-            return new Nodo(letra);
-        else if (letra.hashCode() < n.letra.hashCode())
-            n.izquierda = insertar(n.izquierda, letra);
-        else if (letra.hashCode() > n.letra.hashCode())
-            n.derecha = insertar(n.derecha, letra);
-        return n;
-    }
+    
     
     public int nodosCompletos(Nodo n) {
         if (n == null)
