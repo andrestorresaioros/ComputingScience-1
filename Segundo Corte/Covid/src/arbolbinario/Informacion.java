@@ -7,7 +7,7 @@ package arbolbinario;
 
 /**
  *
- * @author lizet
+ * @author 
  */
 
 import javax.swing.JPanel;
