@@ -106,7 +106,7 @@ public class Nodo {
     public String inorden() {
         String in = "";
         if (izq != null) {
-            in = in + ", "+izq.inorden();
+            in = in + izq.inorden()+",";
         }
         in = in + String.valueOf(cod);
         if (der != null) {
