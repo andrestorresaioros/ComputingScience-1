@@ -11,7 +11,7 @@ import java.util.GregorianCalendar;
 
 /**
  *
- * @author
+ * @author Andres :)
  */
 public class Nodo {
     
