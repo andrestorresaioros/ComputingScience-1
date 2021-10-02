@@ -74,7 +74,10 @@ public class Arbol {
     public void consultar(Nodo lista, int telefono){
         if(lista != null){
             if(lista.getTelefono() == telefono){
-                JOptionPane.showMessageDialog(null,lista.isBloqueado());
+                JOptionPane.showMessageDialog(null,"Telefono: "
+                        +lista.getTelefono()+"\nUsuario: "+lista.getUsuario()
+                        +"\nBalance: "+lista.getBalance()
+                        +"\nBloqueado: "+lista.isBloqueado());
             }else{
                 consultar(lista.getIzquierda(),telefono);
                 consultar(lista.getDerecha(),telefono);

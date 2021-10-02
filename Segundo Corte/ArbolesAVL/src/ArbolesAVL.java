@@ -190,7 +190,6 @@ public class ArbolesAVL extends javax.swing.JFrame {
         }else{
             a.insertar(nuevo,a.getRaiz());
         }
-        
     }//GEN-LAST:event_InsertarTActionPerformed
 
     private void DibujarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DibujarActionPerformed
