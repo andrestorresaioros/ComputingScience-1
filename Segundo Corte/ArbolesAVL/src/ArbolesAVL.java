@@ -9,9 +9,8 @@
  */
 public class ArbolesAVL extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ArbolesAVL
-     */
+    Arbol a = new Arbol();
+    
     public ArbolesAVL() {
         initComponents();
     }
@@ -55,9 +54,19 @@ public class ArbolesAVL extends javax.swing.JFrame {
 
         RetirarT.setText("Retirar Teléfono");
 
-        ConsultarT.setText("Consultar Estado");
+        ConsultarT.setText("Consultar Nodo");
+        ConsultarT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarTActionPerformed(evt);
+            }
+        });
 
         CambiarE.setText("Cambiar Estado");
+        CambiarE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CambiarEActionPerformed(evt);
+            }
+        });
 
         Dibujar.setText("Dibujar Arbol");
         Dibujar.addActionListener(new java.awt.event.ActionListener() {
@@ -174,12 +183,27 @@ public class ArbolesAVL extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void InsertarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertarTActionPerformed
-        // TODO add your handling code here:
+        Nodo nuevo = new Nodo(Integer.parseInt(this.Telefono.getText()),this.NombreU.getText());
+        if(a.getRaiz() == null){
+            a.setRaiz(nuevo);
+            nuevo.niveles();
+        }else{
+            a.insertar(nuevo,a.getRaiz());
+        }
+        
     }//GEN-LAST:event_InsertarTActionPerformed
 
     private void DibujarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DibujarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_DibujarActionPerformed
+
+    private void CambiarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarEActionPerformed
+        a.cambiarEstado(a.getRaiz(),Integer.parseInt(this.Telefono.getText()));
+    }//GEN-LAST:event_CambiarEActionPerformed
+
+    private void ConsultarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarTActionPerformed
+        a.consultar(a.getRaiz(), Integer.parseInt(this.Telefono.getText()));
+    }//GEN-LAST:event_ConsultarTActionPerformed
 
     /**
      * @param args the command line arguments

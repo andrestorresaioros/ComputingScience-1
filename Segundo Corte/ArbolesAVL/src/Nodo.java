@@ -1,11 +1,13 @@
 public class Nodo {
     
+    private int telefono;
+    private String usuario;
+    private boolean bloqueado;
     private Nodo izquierda;
     private Nodo derecha;
-    private String[] in;
-    private String[] pos;
-    private Nodo raiz;
-    private String letra;
+    private int nivelIzq;
+    private int nivelDer;
+    private int balance;
     
     
     //GETTERS Y SETTERS
@@ -25,50 +27,115 @@ public class Nodo {
     public void setDerecha(Nodo derecha) {
         this.derecha = derecha;
     }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public boolean isBloqueado() {
+        return bloqueado;
+    }
+
+    public void setBloqueado(boolean bloqueado) {
+        this.bloqueado = bloqueado;
+    }
  
-    public String getLetra(){
-        return this.letra;
+    public int getNivelIzq() {
+        return nivelIzq;
+    }
+
+    public void setNivelIzq(int nivelIzq) {
+        this.nivelIzq = nivelIzq;
     }
     
-    public void setNum(String letra){
-        this.letra = letra;
+    public int getNivelDer() {
+        return nivelDer;
     }
-    
-    public Nodo getRaiz(){
-        return raiz;
+
+    public void setNivelDer(int nivelDer) {
+        this.nivelDer = nivelDer;
     }
-    
-    public void setRaiz(Nodo raiz){
-        this.raiz = raiz;
+
+    public int getBalance() {
+        return balance;
     }
-    
-    public String[] getIn(){
-        return this.in;
-    }
-    
-    public void setIn(String[] in){
-        this.in = in;
-    }
-    
-    public String[] getPos(){
-        return this.pos;
-    }
-    
-    public void setPos(String[] pos){
-        this.pos = pos;
+
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
     
     
     //CONSTRUCTOR
-    public Nodo(String letra){
+    public Nodo(int telefono, String usuario){
         this.izquierda = null;
         this.derecha = null;
-        this.letra = letra;
-        this.raiz = null;
-        this.in = null;
-        this.pos = null;
+        this.telefono = telefono;
+        this.usuario = usuario;
+        this.bloqueado = false;
+        this.nivelDer = 0;
+        this.nivelIzq = 0;
     }
     
+    
+    public void niveles(){
+        if(this.izquierda != null){
+            this.nivelIzq++;
+            niveles2(this.izquierda,"izq");
+        }
+        
+        if(this.derecha != null){
+            this.nivelDer++;
+            niveles2(this.derecha,"der");
+        }
+        
+        this.balance = this.nivelDer-this.nivelIzq;
+    }
+    
+    public void niveles2(Nodo lista, String dir){
+        if(dir.equals("izq")){
+            if(lista.izquierda != null){
+                this.nivelIzq++;
+                if(lista.derecha != null){
+                    niveles2(lista.izquierda,dir);
+                    niveles2(lista.derecha,dir);
+                }else{
+                    niveles2(lista.izquierda,dir);
+                }
+            }else{
+                if(lista.derecha != null){
+                    this.nivelIzq++;
+                    niveles2(lista.derecha,dir);
+                }
+            }
+        }else{
+            if(lista.izquierda != null){
+                this.nivelDer++;
+                if(lista.derecha != null){
+                    niveles2(lista.izquierda,dir);
+                    niveles2(lista.derecha,dir);
+                }else{
+                    niveles2(lista.izquierda,dir);
+                }
+            }else{
+                if(lista.derecha != null){
+                    this.nivelDer++;
+                    niveles2(lista.derecha,dir);
+                }
+            }
+        }
+    }
     
     public int nodosCompletos(Nodo n) {
         if (n == null)

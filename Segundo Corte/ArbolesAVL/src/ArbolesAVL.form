@@ -170,13 +170,19 @@
         </Component>
         <Component class="javax.swing.JButton" name="ConsultarT">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Consultar Estado"/>
+            <Property name="text" type="java.lang.String" value="Consultar Nodo"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultarTActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="CambiarE">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cambiar Estado"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CambiarEActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Dibujar">
           <Properties>
