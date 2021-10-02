@@ -100,7 +100,7 @@ public class Nodo {
             niveles2(this.derecha,"der");
         }
         
-        this.balance = this.nivelDer-this.nivelIzq;
+        this.balance = this.nivelIzq-this.nivelDer;
     }
     
     public void niveles2(Nodo lista, String dir){
