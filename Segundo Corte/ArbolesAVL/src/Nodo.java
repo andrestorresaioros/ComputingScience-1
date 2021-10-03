@@ -147,4 +147,30 @@ public class Nodo {
         }
     }
     
+    public String inorden() {
+        String in = "";
+        if (izquierda != null) {
+            in = in + izquierda.inorden()+",";
+        }
+        in = in + String.valueOf(telefono);
+        if (derecha != null) {
+            in = in + ","+derecha.inorden();
+        }
+        return in;
+    }
+    
+    public String posorden() {
+        String pos = "";
+        
+        if (izquierda != null) {
+            pos = pos + izquierda.posorden() + ",";
+        }
+        if (derecha != null) {
+            pos = pos +derecha.posorden() + ",";
+        }
+        pos +=  String.valueOf(telefono);
+
+        return pos;
+    }
+    
 }

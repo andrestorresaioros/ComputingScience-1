@@ -75,7 +75,7 @@ public class ArbolesAVL extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Arbol en Inorder:");
+        jLabel2.setText("Arbol en Inorden:");
 
         jLabel3.setText("Arbol en Posorden:");
 
@@ -190,6 +190,9 @@ public class ArbolesAVL extends javax.swing.JFrame {
         }else{
             a.insertar(nuevo,a.getRaiz());
         }
+        this.Inorder.setText(a.getRaiz().inorden());
+        this.Posorden.setText(a.getRaiz().posorden());
+        this.Nivel.setText("");
     }//GEN-LAST:event_InsertarTActionPerformed
 
     private void DibujarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DibujarActionPerformed
