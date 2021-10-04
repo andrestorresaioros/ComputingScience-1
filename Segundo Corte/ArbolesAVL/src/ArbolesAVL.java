@@ -1,3 +1,6 @@
+
+import javax.swing.JFrame;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -196,7 +199,14 @@ public class ArbolesAVL extends javax.swing.JFrame {
     }//GEN-LAST:event_InsertarTActionPerformed
 
     private void DibujarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DibujarActionPerformed
-        // TODO add your handling code here:
+        Lienzo objLienzo = new Lienzo(); //VISTA
+        Controlador objControlador = new Controlador(objLienzo, a);
+        objControlador.iniciar();
+        //
+        JFrame ventana = new JFrame();
+        ventana.getContentPane().add(objLienzo);
+        ventana.setSize(600, 600);
+        ventana.setVisible(true);
     }//GEN-LAST:event_DibujarActionPerformed
 
     private void CambiarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarEActionPerformed
