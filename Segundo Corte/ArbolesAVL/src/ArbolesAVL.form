@@ -167,6 +167,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Retirar Tel&#xe9;fono"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RetirarTActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ConsultarT">
           <Properties>

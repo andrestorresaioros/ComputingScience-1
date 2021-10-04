@@ -172,5 +172,42 @@ public class Nodo {
 
         return pos;
     }
+    public Nodo anterior() {
+        if (this.getDerecha() == null) {
+            return this;
+        } else {
+            return this.getDerecha().anterior();
+        }
+    }
+ 
+    public Nodo siguiente() {
+        if (this.getIzquierda() == null) {
+            return this;
+        } else {
+            return this.getIzquierda().siguiente();
+        }
+    }
+    public Nodo borrar(int telefono) {
+        Nodo response = this;
+        if (telefono < this.telefono) {  
+            this.izquierda = this.izquierda.borrar(telefono);
+        } else if (telefono > this.telefono) {
+            this.derecha = this.derecha.borrar(telefono);
+        } else {
+            if (this.izquierda != null && this.derecha != null) {
+                Nodo temp = this;
+                Nodo mayIzq = this.izquierda.anterior();
+                this.telefono= mayIzq.getTelefono();
+                temp.izquierda = temp.izquierda.borrar(mayIzq.getTelefono());
+            } else if (this.izquierda != null) {
+                response = this.izquierda;
+            } else if (this.derecha != null) {
+                response = this.derecha;
+            } else {
+                response = null;
+            }
+        }
+        return response;
+    }
     
 }

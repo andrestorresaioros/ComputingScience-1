@@ -1,11 +1,6 @@
 
 import javax.swing.JFrame;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 /**
  *
  * @author cesar
@@ -56,6 +51,11 @@ public class ArbolesAVL extends javax.swing.JFrame {
         });
 
         RetirarT.setText("Retirar Teléfono");
+        RetirarT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RetirarTActionPerformed(evt);
+            }
+        });
 
         ConsultarT.setText("Consultar Nodo");
         ConsultarT.addActionListener(new java.awt.event.ActionListener() {
@@ -216,6 +216,18 @@ public class ArbolesAVL extends javax.swing.JFrame {
     private void ConsultarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarTActionPerformed
         a.consultar(a.getRaiz(), Integer.parseInt(this.Telefono.getText()));
     }//GEN-LAST:event_ConsultarTActionPerformed
+
+    private void RetirarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RetirarTActionPerformed
+        try {
+            a.setRaiz(a.getRaiz().borrar(Integer.parseInt(this.Telefono.getText())));
+            this.Inorder.setText(a.getRaiz().inorden());
+            this.Posorden.setText(a.getRaiz().posorden());
+        } catch (NullPointerException e) {
+            this.Inorder.setText("");
+            this.Posorden.setText("");
+        }
+        
+    }//GEN-LAST:event_RetirarTActionPerformed
 
     /**
      * @param args the command line arguments
