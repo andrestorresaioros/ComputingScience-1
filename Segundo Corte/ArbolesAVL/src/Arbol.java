@@ -108,14 +108,24 @@ public class Arbol {
                             Nodo temp = lista.getIzquierda().getDerecha();
                             lista.getIzquierda().setDerecha(lista);
                             if(lista != this.raiz){
-                                lista.getRaiz().setIzquierda(lista.getIzquierda());
+                                if(lista.getRaiz().getIzquierda() == lista){
+                                    lista.getRaiz().setIzquierda(lista.getIzquierda());
+                                }else{
+                                    lista.getRaiz().setDerecha(lista.getIzquierda());
+                                }
+                                
                             }
                             lista.setRaiz(lista.getIzquierda());
                             lista.setIzquierda(temp);
                         }else{                                                           //p negativo
                             lista.getIzquierda().getDerecha().setRaiz(lista.getRaiz());
                             if(lista != this.raiz){
-                                lista.getRaiz().setIzquierda(lista.getIzquierda().getDerecha());
+                                if(lista.getRaiz().getIzquierda() == lista){
+                                    lista.getRaiz().setIzquierda(lista.getIzquierda().getDerecha());
+                                }else{
+                                    lista.getRaiz().setDerecha(lista.getIzquierda().getDerecha());
+                                }
+                                
                             }
                             lista.setRaiz(lista.getIzquierda().getDerecha());
                             lista.getIzquierda().setRaiz(lista.getIzquierda().getDerecha());
@@ -129,7 +139,12 @@ public class Arbol {
                         if(lista.getDerecha().getBalance() > 0){                         //p positivo
                             lista.getDerecha().getIzquierda().setRaiz(lista.getRaiz());
                             if(lista != this.raiz){
-                                lista.getRaiz().setDerecha(lista.getDerecha().getIzquierda());
+                                if(lista.getRaiz().getDerecha() == lista){
+                                    lista.getRaiz().setDerecha(lista.getDerecha().getIzquierda());
+                                }else{
+                                    lista.getRaiz().setIzquierda(lista.getDerecha().getIzquierda());
+                                }
+                                
                             }
                             lista.setRaiz(lista.getDerecha().getIzquierda());
                             lista.getDerecha().setRaiz(lista.getDerecha().getIzquierda());
@@ -143,7 +158,12 @@ public class Arbol {
                             Nodo temp = lista.getDerecha().getIzquierda();
                             lista.getDerecha().setIzquierda(lista);
                             if(lista != this.raiz){
-                                lista.getRaiz().setDerecha(lista.getDerecha());
+                                if(lista.getRaiz().getDerecha() == lista){
+                                    lista.getRaiz().setDerecha(lista.getDerecha());
+                                }else{  
+                                    lista.getRaiz().setIzquierda(lista.getDerecha());
+                                }
+                                
                             }
                             lista.setRaiz(lista.getDerecha());
                             lista.setDerecha(temp);
@@ -161,19 +181,29 @@ public class Arbol {
                     try{
                         if(Math.abs(lista.getDerecha().getBalance()) == 1){
                             if(lista.getBalance() > 0){                                     //q positivo
-                            if(lista.getIzquierda().getBalance() > 0){                      //p positivo    
+                            if(lista.getIzquierda().getBalance() > 0){                      //p positivo                               
                                 lista.getIzquierda().setRaiz(lista.getRaiz());
                                 Nodo temp = lista.getIzquierda().getDerecha();
                                 lista.getIzquierda().setDerecha(lista);
                                 if(lista != this.raiz){
-                                    lista.getRaiz().setIzquierda(lista.getIzquierda());
+                                    if(lista.getRaiz().getIzquierda() == lista){
+                                        lista.getRaiz().setIzquierda(lista.getIzquierda());
+                                    }else{
+                                        lista.getRaiz().setDerecha(lista.getIzquierda());
+                                    }
+
                                 }
                                 lista.setRaiz(lista.getIzquierda());
                                 lista.setIzquierda(temp);
                             }else{                                                           //p negativo
                                 lista.getIzquierda().getDerecha().setRaiz(lista.getRaiz());
                                 if(lista != this.raiz){
-                                    lista.getRaiz().setIzquierda(lista.getIzquierda().getDerecha());
+                                    if(lista.getRaiz().getIzquierda() == lista){
+                                        lista.getRaiz().setIzquierda(lista.getIzquierda().getDerecha());
+                                    }else{
+                                        lista.getRaiz().setDerecha(lista.getIzquierda().getDerecha());
+                                    }
+
                                 }
                                 lista.setRaiz(lista.getIzquierda().getDerecha());
                                 lista.getIzquierda().setRaiz(lista.getIzquierda().getDerecha());
@@ -187,7 +217,12 @@ public class Arbol {
                             if(lista.getDerecha().getBalance() > 0){                         //p positivo
                                 lista.getDerecha().getIzquierda().setRaiz(lista.getRaiz());
                                 if(lista != this.raiz){
-                                    lista.getRaiz().setDerecha(lista.getDerecha().getIzquierda());
+                                    if(lista.getRaiz().getDerecha() == lista){
+                                        lista.getRaiz().setDerecha(lista.getDerecha().getIzquierda());
+                                    }else{
+                                        lista.getRaiz().setIzquierda(lista.getDerecha().getIzquierda());
+                                    }
+
                                 }
                                 lista.setRaiz(lista.getDerecha().getIzquierda());
                                 lista.getDerecha().setRaiz(lista.getDerecha().getIzquierda());
@@ -201,7 +236,12 @@ public class Arbol {
                                 Nodo temp = lista.getDerecha().getIzquierda();
                                 lista.getDerecha().setIzquierda(lista);
                                 if(lista != this.raiz){
-                                    lista.getRaiz().setDerecha(lista.getDerecha());
+                                    if(lista.getRaiz().getDerecha() == lista){
+                                        lista.getRaiz().setDerecha(lista.getDerecha());
+                                    }else{  
+                                        lista.getRaiz().setIzquierda(lista.getDerecha());
+                                    }
+
                                 }
                                 lista.setRaiz(lista.getDerecha());
                                 lista.setDerecha(temp);
@@ -211,7 +251,10 @@ public class Arbol {
                         if(this.raiz == lista){
                             this.raiz = lista.getRaiz();
                         }
-                        }
+                    }else{
+                        balancearArbol(lista.getIzquierda());
+                        balancearArbol(lista.getDerecha());
+                    }
                     }catch(Exception e1){
                         balancearArbol(lista.getIzquierda());
                         balancearArbol(lista.getDerecha());
