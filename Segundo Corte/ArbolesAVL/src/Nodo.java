@@ -172,6 +172,23 @@ public class Nodo {
 
         return pos;
     }
+    public String nivel(){
+        String niv = "";
+            niv +=  String.valueOf(telefono)+",";
+                if (izquierda != null) {
+                     niv = niv + izquierda.nivel();
+                     }
+                if (derecha != null) {
+                        niv = niv +derecha.nivel();
+                    }
+        return niv;
+    } 
+     
+        
+    
+
+        
+    
     public Nodo anterior() {
         if (this.getDerecha() == null) {
             return this;

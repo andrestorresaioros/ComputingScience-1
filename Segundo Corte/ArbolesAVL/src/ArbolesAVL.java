@@ -195,7 +195,7 @@ public class ArbolesAVL extends javax.swing.JFrame {
         }
         this.Inorder.setText(a.getRaiz().inorden());
         this.Posorden.setText(a.getRaiz().posorden());
-        this.Nivel.setText("");
+        this.Nivel.setText(a.getRaiz().nivel());
     }//GEN-LAST:event_InsertarTActionPerformed
 
     private void DibujarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DibujarActionPerformed
@@ -222,9 +222,11 @@ public class ArbolesAVL extends javax.swing.JFrame {
             a.setRaiz(a.getRaiz().borrar(Integer.parseInt(this.Telefono.getText())));
             this.Inorder.setText(a.getRaiz().inorden());
             this.Posorden.setText(a.getRaiz().posorden());
+            this.Nivel.setText(a.getRaiz().nivel());
         } catch (NullPointerException e) {
             this.Inorder.setText("");
             this.Posorden.setText("");
+            this.Nivel.setText("");
         }
         
     }//GEN-LAST:event_RetirarTActionPerformed
