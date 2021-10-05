@@ -4,9 +4,7 @@ import javax.swing.JOptionPane;
 public class Arbol {
 
     private Nodo raiz;
-    private String inorden;
-    private String posorden;
-    private String niveles;
+    
     
     //GETTERS Y SETTERS
 
@@ -17,39 +15,12 @@ public class Arbol {
     public void setRaiz(Nodo raiz) {
         this.raiz = raiz;
     }
-
-    public String getInorden() {
-        return inorden;
-    }
-
-    public void setInorden(String inorden) {
-        this.inorden = inorden;
-    }
-
-    public String getPosorden() {
-        return posorden;
-    }
-
-    public void setPosorden(String posorden) {
-        this.posorden = posorden;
-    }
-
-    public String getNiveles() {
-        return niveles;
-    }
-
-    public void setNiveles(String niveles) {
-        this.niveles = niveles;
-    }
     
     
     //CONSTRUCTOR
     
     public Arbol(){
         this.raiz = null;
-        this.inorden = "";
-        this.posorden = "";
-        this.niveles = "";
     }
     
     public void insertar(Nodo nuevo, Nodo lista){
@@ -60,6 +31,10 @@ public class Arbol {
                 if(nuevo.getTelefono() < lista.getTelefono()){
                     if(lista.getIzquierda() == null){
                         lista.setIzquierda(nuevo);
+                        nuevo.setRaiz(lista);
+                        llenarBalance(this.raiz);
+                        //BALANCEAR
+                        balancearArbol(this.raiz);
                         llenarBalance(this.raiz);
                     }else{
                         insertar(nuevo,lista.getIzquierda());
@@ -67,6 +42,10 @@ public class Arbol {
                 }else{
                     if(lista.getDerecha() == null){
                         lista.setDerecha(nuevo);
+                        nuevo.setRaiz(lista);
+                        llenarBalance(this.raiz);
+                        //BALANCEAR
+                        balancearArbol(this.raiz);
                         llenarBalance(this.raiz);
                     }else{
                         insertar(nuevo,lista.getDerecha());
@@ -82,7 +61,7 @@ public class Arbol {
             lista.setNivelDer(0);
             lista.niveles();
             llenarBalance(lista.getIzquierda());
-            llenarBalance(lista.getIzquierda());
+            llenarBalance(lista.getDerecha());
         }
     }
     
@@ -115,5 +94,135 @@ public class Arbol {
         }
     }
    
+    private void balancearArbol(Nodo lista){
+        if(lista != null){
+            if(lista.getBalance() != 0 && lista.getBalance() != 1 && lista.getBalance() != -1){
+                try{
+                    
+                if(Math.abs(lista.getIzquierda().getBalance()) == 1 
+                        || Math.abs(lista.getDerecha().getBalance()) == 1){
+                    
+                        if(lista.getBalance() > 0){                                     //q positivo
+                        if(lista.getIzquierda().getBalance() > 0){                      //p positivo                               
+                            lista.getIzquierda().setRaiz(lista.getRaiz());
+                            Nodo temp = lista.getIzquierda().getDerecha();
+                            lista.getIzquierda().setDerecha(lista);
+                            if(lista != this.raiz){
+                                lista.getRaiz().setIzquierda(lista.getIzquierda());
+                            }
+                            lista.setRaiz(lista.getIzquierda());
+                            lista.setIzquierda(temp);
+                        }else{                                                           //p negativo
+                            lista.getIzquierda().getDerecha().setRaiz(lista.getRaiz());
+                            if(lista != this.raiz){
+                                lista.getRaiz().setIzquierda(lista.getIzquierda().getDerecha());
+                            }
+                            lista.setRaiz(lista.getIzquierda().getDerecha());
+                            lista.getIzquierda().setRaiz(lista.getIzquierda().getDerecha());
+                            Nodo temp = lista.getRaiz().getDerecha();
+                            lista.getRaiz().setDerecha(lista);
+                            lista.getIzquierda().setDerecha(lista.getRaiz().getIzquierda());
+                            lista.getRaiz().setIzquierda(lista.getIzquierda());
+                            lista.setIzquierda(temp);
+                        }
+                    }else{                                                               //q negativo
+                        if(lista.getDerecha().getBalance() > 0){                         //p positivo
+                            lista.getDerecha().getIzquierda().setRaiz(lista.getRaiz());
+                            if(lista != this.raiz){
+                                lista.getRaiz().setDerecha(lista.getDerecha().getIzquierda());
+                            }
+                            lista.setRaiz(lista.getDerecha().getIzquierda());
+                            lista.getDerecha().setRaiz(lista.getDerecha().getIzquierda());
+                            Nodo temp = lista.getRaiz().getIzquierda();
+                            lista.getRaiz().setIzquierda(lista);
+                            lista.getDerecha().setIzquierda(lista.getRaiz().getDerecha());
+                            lista.getRaiz().setDerecha(lista.getDerecha());
+                            lista.setDerecha(temp);
+                        }else{                                                             //p negativo
+                            lista.getDerecha().setRaiz(lista.getRaiz());
+                            Nodo temp = lista.getDerecha().getIzquierda();
+                            lista.getDerecha().setIzquierda(lista);
+                            if(lista != this.raiz){
+                                lista.getRaiz().setDerecha(lista.getDerecha());
+                            }
+                            lista.setRaiz(lista.getDerecha());
+                            lista.setDerecha(temp);
+                        }
+                    }
+
+                    if(this.raiz == lista){
+                        this.raiz = lista.getRaiz();
+                    }
+                }else{
+                    balancearArbol(lista.getIzquierda());
+                    balancearArbol(lista.getDerecha());
+                }
+                }catch(Exception e){
+                    try{
+                        if(Math.abs(lista.getDerecha().getBalance()) == 1){
+                            if(lista.getBalance() > 0){                                     //q positivo
+                            if(lista.getIzquierda().getBalance() > 0){                      //p positivo    
+                                lista.getIzquierda().setRaiz(lista.getRaiz());
+                                Nodo temp = lista.getIzquierda().getDerecha();
+                                lista.getIzquierda().setDerecha(lista);
+                                if(lista != this.raiz){
+                                    lista.getRaiz().setIzquierda(lista.getIzquierda());
+                                }
+                                lista.setRaiz(lista.getIzquierda());
+                                lista.setIzquierda(temp);
+                            }else{                                                           //p negativo
+                                lista.getIzquierda().getDerecha().setRaiz(lista.getRaiz());
+                                if(lista != this.raiz){
+                                    lista.getRaiz().setIzquierda(lista.getIzquierda().getDerecha());
+                                }
+                                lista.setRaiz(lista.getIzquierda().getDerecha());
+                                lista.getIzquierda().setRaiz(lista.getIzquierda().getDerecha());
+                                Nodo temp = lista.getRaiz().getDerecha();
+                                lista.getRaiz().setDerecha(lista);
+                                lista.getIzquierda().setDerecha(lista.getRaiz().getIzquierda());
+                                lista.getRaiz().setIzquierda(lista.getIzquierda());
+                                lista.setIzquierda(temp);
+                            }
+                        }else{                                                               //q negativo
+                            if(lista.getDerecha().getBalance() > 0){                         //p positivo
+                                lista.getDerecha().getIzquierda().setRaiz(lista.getRaiz());
+                                if(lista != this.raiz){
+                                    lista.getRaiz().setDerecha(lista.getDerecha().getIzquierda());
+                                }
+                                lista.setRaiz(lista.getDerecha().getIzquierda());
+                                lista.getDerecha().setRaiz(lista.getDerecha().getIzquierda());
+                                Nodo temp = lista.getRaiz().getIzquierda();
+                                lista.getRaiz().setIzquierda(lista);
+                                lista.getDerecha().setIzquierda(lista.getRaiz().getDerecha());
+                                lista.getRaiz().setDerecha(lista.getDerecha());
+                                lista.setDerecha(temp);
+                            }else{                                                             //p negativo
+                                lista.getDerecha().setRaiz(lista.getRaiz());
+                                Nodo temp = lista.getDerecha().getIzquierda();
+                                lista.getDerecha().setIzquierda(lista);
+                                if(lista != this.raiz){
+                                    lista.getRaiz().setDerecha(lista.getDerecha());
+                                }
+                                lista.setRaiz(lista.getDerecha());
+                                lista.setDerecha(temp);
+                            }
+                        }
+
+                        if(this.raiz == lista){
+                            this.raiz = lista.getRaiz();
+                        }
+                        }
+                    }catch(Exception e1){
+                        balancearArbol(lista.getIzquierda());
+                        balancearArbol(lista.getDerecha());
+                    }
+                }
+                
+            }else{
+                balancearArbol(lista.getIzquierda());
+                balancearArbol(lista.getDerecha());
+            }
+        }
+    }
     
 }

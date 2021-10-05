@@ -5,6 +5,7 @@ public class Nodo {
     private boolean bloqueado;
     private Nodo izquierda;
     private Nodo derecha;
+    private Nodo raiz;
     private int nivelIzq;
     private int nivelDer;
     private int balance;
@@ -75,6 +76,15 @@ public class Nodo {
     public void setBalance(int balance) {
         this.balance = balance;
     }
+
+    public Nodo getRaiz() {
+        return raiz;
+    }
+
+    public void setRaiz(Nodo raiz) {
+        this.raiz = raiz;
+    }
+    
     
     
     //CONSTRUCTOR
@@ -86,6 +96,7 @@ public class Nodo {
         this.bloqueado = false;
         this.nivelDer = 0;
         this.nivelIzq = 0;
+        this.raiz = null;
     }
     
     
