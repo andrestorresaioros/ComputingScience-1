@@ -94,7 +94,7 @@ public class Arbol {
         }
     }
    
-    private void balancearArbol(Nodo lista){
+    public void balancearArbol(Nodo lista){
         if(lista != null){
             if(lista.getBalance() != 0 && lista.getBalance() != 1 && lista.getBalance() != -1){
                 try{

@@ -223,6 +223,7 @@ public class ArbolesAVL extends javax.swing.JFrame {
         try {
             a.setRaiz(a.getRaiz().borrar(Integer.parseInt(this.Telefono.getText())));
             a.llenarBalance(a.getRaiz());
+            a.balancearArbol(a.getRaiz());
             this.Inorder.setText(a.getRaiz().inorden());
             this.Posorden.setText(a.getRaiz().posorden());
             this.Nivel.setText(a.getRaiz().nivel());

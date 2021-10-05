@@ -230,6 +230,7 @@ public class Nodo {
                 Nodo temp = this;
                 Nodo mayIzq = this.izquierda.anterior();
                 this.telefono= mayIzq.getTelefono();
+                this.usuario=mayIzq.getUsuario();
                 temp.izquierda = temp.izquierda.borrar(mayIzq.getTelefono());
             } else if (this.izquierda != null) {
                 response = this.izquierda;
