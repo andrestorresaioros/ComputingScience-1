@@ -174,13 +174,17 @@ public class Nodo {
     }
     public String nivel(){
         String niv = "";
+        String f="";
             niv +=  String.valueOf(telefono)+",";
                 if (izquierda != null) {
-                     niv = niv + izquierda.nivel();
+                     niv = niv + izquierda.nivel()+",";
                      }
                 if (derecha != null) {
-                        niv = niv +derecha.nivel();
+                        niv = niv +derecha.nivel()+",";
                     }
+        if (niv.endsWith(",")) {
+            niv = niv.substring(0, niv.length() - 1);
+}
         return niv;
     } 
      

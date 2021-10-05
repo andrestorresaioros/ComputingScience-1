@@ -195,6 +195,8 @@ public class ArbolesAVL extends javax.swing.JFrame {
         }
         this.Inorder.setText(a.getRaiz().inorden());
         this.Posorden.setText(a.getRaiz().posorden());
+
+        
         this.Nivel.setText(a.getRaiz().nivel());
     }//GEN-LAST:event_InsertarTActionPerformed
 
